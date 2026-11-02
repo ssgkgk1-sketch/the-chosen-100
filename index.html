@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Chosen 100</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,7 +129,7 @@ ko:{name:'한국어', loc:'ko-KR', tz:'(한국시간)',
   story:'모든 알과 똑같은 모습으로 조용히 숨 쉬고 있어요. 이 알에서 누가 태어날지는 아무도 몰라요.',
   storyH:'알에 금이 가기 시작했어요! 곧 이 알의 아이가 모습을 드러냅니다.',
   what:n=>`무엇인가요? — The Chosen 100 컬렉션의 ${n}번째 알입니다.`,
-  prev:'← 이전', next:'다음 →', foot:'© The Chosen 100', alt:n=>`${n}번 알`},
+  prev:'← 이전', next:'다음 →', foot:'공식 채널은 이 사이트와 <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> 뿐이에요.<br>민팅 링크를 DM으로 보내지 않으며, 시드 문구는 절대 묻지 않아요.<br>© The Chosen 100', alt:n=>`${n}번 알`},
 en:{name:'EN', loc:'en-US', tz:'(KST)',
   title:'The Chosen Eggs', sub:'Only 100 incubators exist in the world. Every egg looks exactly the same and waits for the same day.<br>When that day comes, the shells crack — and only then will we know who was inside.',
   d:'days',h:'hours',m:'min',s:'sec', hatchLabel:'Hatch day', hatched:'🐣 The hatching has begun!',
@@ -137,7 +139,7 @@ en:{name:'EN', loc:'en-US', tz:'(KST)',
   story:'It breathes quietly, looking exactly like every other egg. No one knows who will be born from it.',
   storyH:'A crack has appeared! The one inside this egg will show itself soon.',
   what:n=>`What is it? — Egg No. ${n} of The Chosen 100 collection.`,
-  prev:'← Prev', next:'Next →', foot:'© The Chosen 100', alt:n=>`Egg No. ${n}`},
+  prev:'← Prev', next:'Next →', foot:'Official channels: this site and <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> only.<br>We never send mint links by DM and never ask for your seed phrase.<br>© The Chosen 100', alt:n=>`Egg No. ${n}`},
 ja:{name:'日本語', loc:'ja-JP', tz:'(日本・韓国時間)',
   title:'選ばれし卵', sub:'世界にたった100個だけの孵化器。すべての卵は同じ姿で、同じ日を待っています。<br>その日が来て殻が割れたとき、初めて中に誰がいたのかがわかります。',
   d:'日',h:'時間',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化が始まりました！',
@@ -147,7 +149,7 @@ ja:{name:'日本語', loc:'ja-JP', tz:'(日本・韓国時間)',
   story:'ほかの卵とまったく同じ姿で、静かに息をしています。この卵から誰が生まれるのか、まだ誰も知りません。',
   storyH:'殻にひびが入りました！もうすぐこの卵の子が姿を現します。',
   what:n=>`これは何？ — The Chosen 100 コレクションの${n}番目の卵です。`,
-  prev:'← 前へ', next:'次へ →', foot:'© The Chosen 100', alt:n=>`${n}番の卵`},
+  prev:'← 前へ', next:'次へ →', foot:'公式チャンネルはこのサイトと <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> だけです。<br>DMでミントリンクを送ることはなく、シードフレーズを聞くことも絶対にありません。<br>© The Chosen 100', alt:n=>`${n}番の卵`},
 zh:{name:'中文', loc:'zh-CN', tz:'(韩国时间)',
   title:'天选之蛋', sub:'世界上只有100个孵化器。每一颗蛋都长得一模一样，等待着同一天的到来。<br>那一天蛋壳破裂，我们才会知道里面究竟是谁。',
   d:'天',h:'小时',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化已经开始！',
@@ -157,7 +159,7 @@ zh:{name:'中文', loc:'zh-CN', tz:'(韩国时间)',
   story:'它和其他蛋一模一样，正安静地呼吸着。没有人知道会从这颗蛋里诞生什么。',
   storyH:'蛋壳出现了裂缝！这颗蛋里的孩子很快就要现身了。',
   what:n=>`这是什么？ — The Chosen 100 收藏系列的第${n}颗蛋。`,
-  prev:'← 上一个', next:'下一个 →', foot:'© The Chosen 100', alt:n=>`${n}号蛋`},
+  prev:'← 上一个', next:'下一个 →', foot:'官方渠道仅限本网站和 <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a>。<br>我们绝不会通过私信发送铸造链接，也绝不会索要你的助记词。<br>© The Chosen 100', alt:n=>`${n}号蛋`},
 };
 const ORDER=['en','ko','ja','zh'];
 
