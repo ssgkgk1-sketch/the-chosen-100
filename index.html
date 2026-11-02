@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Chosen 100</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=M+PLUS+Rounded+1c:wght@500;800&family=ZCOOL+KuaiLe&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1026; --bg2:#171b3d; --card:#1d2250; --line:#2f3570;
+  --gold:#f5c451; --gold2:#ffe39a; --text:#f4f1ff; --muted:#a9acd6;
+
+  --body:"Gowun Dodum",system-ui,sans-serif; --head:Jua,sans-serif;
+}
+html[lang=en]{--body:Fredoka,system-ui,sans-serif;--head:Fredoka,sans-serif}
+html[lang=ja]{--body:"M PLUS Rounded 1c",system-ui,sans-serif;--head:"M PLUS Rounded 1c",sans-serif}
+html[lang=zh]{--body:system-ui,"PingFang SC","Microsoft YaHei",sans-serif;--head:"ZCOOL KuaiLe",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#2a2f6e 0%,var(--bg) 60%) fixed,var(--bg);
+  color:var(--text);font-family:var(--body);min-height:100vh;overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:24px 16px 80px}
+.top{display:flex;justify-content:flex-end}
+.langs{display:flex;gap:4px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:999px;padding:4px}
+.langs button{font:inherit;font-size:13px;color:var(--muted);background:none;border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
+.langs button.on{background:var(--gold);color:var(--bg)}
+header{text-align:center;margin-top:16px}
+.kicker{color:var(--gold);letter-spacing:.3em;font-size:13px;font-family:Fredoka,sans-serif}
+h1{font-family:var(--head);font-size:clamp(34px,6vw,58px);margin:10px 0 8px;font-weight:800;
+  background:linear-gradient(180deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+html[lang=ko] h1{font-weight:400}
+.sub{color:var(--muted);max-width:600px;margin:0 auto;line-height:1.75}
+.hero{display:flex;justify-content:center;margin:20px 0 4px}
+.hero img{width:min(220px,50vw);animation:bob 3.2s ease-in-out infinite;filter:drop-shadow(0 18px 30px rgba(245,196,81,.25))}
+.countdown{display:flex;justify-content:center;gap:10px;margin:18px 0 8px}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:14px;min-width:78px;padding:12px 8px;text-align:center}
+.cd b{display:block;font-family:Fredoka,sans-serif;font-size:34px;font-weight:600;color:var(--gold2)}
+.cd span{font-size:12px;color:var(--muted)}
+.hatchdate{text-align:center;color:var(--muted);font-size:14px}
+.hatchdate.done{color:var(--gold2)}
+/* 소개 */
+.about{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:44px 0 10px}
+.about article{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:22px}
+.about h3{font-family:var(--head);font-weight:600;color:var(--gold2);margin:0 0 10px;font-size:20px}
+html[lang=ko] .about h3{font-weight:400}
+.about p{margin:0;line-height:1.75;color:#dcdaf5;font-size:15px}
+.about .ic{font-size:26px}
+h2.sec{font-family:var(--head);font-weight:600;text-align:center;color:var(--gold2);margin:48px 0 18px;font-size:26px}
+html[lang=ko] h2.sec{font-weight:400}
+/* 격자 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
+.egg{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
+  border-radius:16px;padding:10px 8px;cursor:pointer;text-align:center;transition:transform .2s,border-color .2s;font:inherit;color:inherit}
+.egg:hover,.egg:focus-visible{transform:translateY(-4px);border-color:var(--gold);outline:none}
+.egg img{width:78%;aspect-ratio:3/4;object-fit:contain;animation:bob 3.2s ease-in-out infinite;filter:drop-shadow(0 6px 12px rgba(0,0,0,.45))}
+.egg .no{font-family:Fredoka,sans-serif;font-weight:600;font-size:17px;color:var(--gold2);margin-top:4px}
+.egg.hatched img{animation:wobble .5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes wobble{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+@media (prefers-reduced-motion:reduce){img{animation:none!important}}
+/* 팝업 */
+dialog{border:1px solid var(--line);border-radius:22px;background:var(--bg2);color:var(--text);max-width:760px;width:calc(100% - 32px);padding:0}
+dialog::backdrop{background:rgba(5,6,20,.75);backdrop-filter:blur(4px)}
+.d{display:grid;grid-template-columns:1fr 1fr}
+.d .pic{background:radial-gradient(circle at 50% 45%,#3a3f8a,var(--bg) 70%);padding:30px 40px;display:flex;align-items:center;justify-content:center}
+.d .pic img{width:100%;max-width:260px;animation:bob 3.2s ease-in-out infinite}
+.d .info{padding:26px 24px}
+.d h2{font-family:var(--head);font-weight:600;font-size:30px;margin:4px 0 8px;color:var(--gold2)}
+html[lang=ko] .d h2{font-weight:400}
+.d .story{line-height:1.8;color:#dcdaf5;margin:0}
+.d dl{display:grid;grid-template-columns:auto 1fr;gap:7px 14px;margin:18px 0;font-size:14px}
+.d dt{color:var(--muted)} .d dd{margin:0}
+.d .art{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;line-height:1.7}
+.close{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--muted);font-size:26px;cursor:pointer;z-index:2}
+.navs{display:flex;gap:8px;margin-top:16px}
+.navs button{flex:1;font:inherit;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px;cursor:pointer}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+@media (max-width:640px){.d{grid-template-columns:1fr}.d .pic{padding:20px 80px}.grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+  .cd{min-width:64px}.cd b{font-size:26px}.langs button{padding:6px 9px}}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:50px;line-height:1.7}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<main>
+  <div class="top"><nav class="langs" id="langs" aria-label="Language"></nav></div>
+  <header>
+    <div class="kicker">THE CHOSEN 100</div>
+    <h1 data-t="title"></h1>
+    <p class="sub" data-t="sub"></p>
+    <div class="hero"><img src="art/egg_v1_cut.png?v=2" alt="" id="heroImg"></div>
+    <div class="countdown">
+      <div class="cd"><b id="dd">--</b><span data-t="d"></span></div>
+      <div class="cd"><b id="hh">--</b><span data-t="h"></span></div>
+      <div class="cd"><b id="mm">--</b><span data-t="m"></span></div>
+      <div class="cd"><b id="ss">--</b><span data-t="s"></span></div>
+    </div>
+    <p class="hatchdate" id="hd"></p>
+  </header>
+
+  <section class="about">
+    <article><div class="ic">🥚</div><h3 data-t="a1h"></h3><p data-t="a1"></p></article>
+    <article><div class="ic">🐣</div><h3 data-t="a3h"></h3><p data-t="a3"></p></article>
+  </section>
+
+  <h2 class="sec" data-t="grid"></h2>
+  <section class="grid" id="grid"></section>
+
+  <footer data-t="foot"></footer>
+</main>
+
+<dialog id="dlg"><button class="close" id="x" aria-label="close">×</button><div class="d" id="dc"></div></dialog>
+
+<script>
+// ===== 설정 =====
+const HATCH_AT = new Date('2026-12-25T00:00:00+09:00'); // 부화 날짜 (한국시간)
+const EGG_IMG = 'art/egg_v1_cut.png?v=2';
+
+const T = {
+ko:{name:'한국어', loc:'ko-KR', tz:'(한국시간)',
+  title:'선택받은 알', sub:'세상에 단 100개만 놓인 부화기. 모든 알은 똑같은 모습으로 같은 날을 기다립니다.<br>그날이 오면 알이 깨지고, 그 안에 누가 있는지 비로소 알게 됩니다.',
+  d:'일',h:'시간',m:'분',s:'초', hatchLabel:'부화일', hatched:'🐣 부화가 시작됐어요!',
+  a1h:'이게 무엇인가요?', a1:'100개 한정 NFT 컬렉션 "The Chosen 100"의 부화기 알이에요. 1번부터 100번까지 번호만 다를 뿐, 지금은 모든 알이 똑같아요. 누구도 어떤 알에 무엇이 들었는지 몰라요.',
+  a3h:'부화하면 어떻게 되나요?', a3:'정해진 날짜와 시각에 100개의 알이 동시에 깨어나요. 안에 누가 있는지는 그때가 되어야 알 수 있어요.',
+  grid:'100개의 알', egg:'선택받은 알', no:'번호', status:'상태', waiting:'부화 대기', hatching:'부화 중', inside:'안에 있는 것', unknown:'??? (부화일에 공개)',
+  story:'모든 알과 똑같은 모습으로 조용히 숨 쉬고 있어요. 이 알에서 누가 태어날지는 아무도 몰라요.',
+  storyH:'알에 금이 가기 시작했어요! 곧 이 알의 아이가 모습을 드러냅니다.',
+  what:n=>`무엇인가요? — The Chosen 100 컬렉션의 ${n}번째 알입니다.`,
+  prev:'← 이전', next:'다음 →', foot:'© The Chosen 100', alt:n=>`${n}번 알`},
+en:{name:'EN', loc:'en-US', tz:'(KST)',
+  title:'The Chosen Eggs', sub:'Only 100 incubators exist in the world. Every egg looks exactly the same and waits for the same day.<br>When that day comes, the shells crack — and only then will we know who was inside.',
+  d:'days',h:'hours',m:'min',s:'sec', hatchLabel:'Hatch day', hatched:'🐣 The hatching has begun!',
+  a1h:'What is this?', a1:'These are the incubator eggs of "The Chosen 100", a limited NFT collection of just 100. They are numbered 1 to 100, but for now every egg is identical. Nobody knows what is inside which egg.',
+  a3h:'What happens at hatching?', a3:'At the set date and time, all 100 eggs hatch at once. Who is inside will only be known then.',
+  grid:'The 100 Eggs', egg:'Chosen Egg', no:'Number', status:'Status', waiting:'Waiting to hatch', hatching:'Hatching', inside:'Inside', unknown:'??? (revealed on hatch day)',
+  story:'It breathes quietly, looking exactly like every other egg. No one knows who will be born from it.',
+  storyH:'A crack has appeared! The one inside this egg will show itself soon.',
+  what:n=>`What is it? — Egg No. ${n} of The Chosen 100 collection.`,
+  prev:'← Prev', next:'Next →', foot:'© The Chosen 100', alt:n=>`Egg No. ${n}`},
+ja:{name:'日本語', loc:'ja-JP', tz:'(日本・韓国時間)',
+  title:'選ばれし卵', sub:'世界にたった100個だけの孵化器。すべての卵は同じ姿で、同じ日を待っています。<br>その日が来て殻が割れたとき、初めて中に誰がいたのかがわかります。',
+  d:'日',h:'時間',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化が始まりました！',
+  a1h:'これは何？', a1:'100個限定のNFTコレクション「The Chosen 100」の孵化器の卵です。1番から100番まで番号が違うだけで、今はすべての卵が同じ姿。どの卵に何が入っているかは誰にもわかりません。',
+  a3h:'孵化すると？', a3:'決められた日時に、100個の卵が一斉に孵ります。中に誰がいるのかは、そのときまでわかりません。',
+  grid:'100個の卵', egg:'選ばれし卵', no:'番号', status:'状態', waiting:'孵化待ち', hatching:'孵化中', inside:'中にいるもの', unknown:'???（孵化日に公開）',
+  story:'ほかの卵とまったく同じ姿で、静かに息をしています。この卵から誰が生まれるのか、まだ誰も知りません。',
+  storyH:'殻にひびが入りました！もうすぐこの卵の子が姿を現します。',
+  what:n=>`これは何？ — The Chosen 100 コレクションの${n}番目の卵です。`,
+  prev:'← 前へ', next:'次へ →', foot:'© The Chosen 100', alt:n=>`${n}番の卵`},
+zh:{name:'中文', loc:'zh-CN', tz:'(韩国时间)',
+  title:'天选之蛋', sub:'世界上只有100个孵化器。每一颗蛋都长得一模一样，等待着同一天的到来。<br>那一天蛋壳破裂，我们才会知道里面究竟是谁。',
+  d:'天',h:'小时',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化已经开始！',
+  a1h:'这是什么？', a1:'这是限量100个的NFT收藏系列「The Chosen 100」的孵化蛋。编号从1到100，除了编号以外，现在每颗蛋都完全相同。没有人知道哪颗蛋里藏着什么。',
+  a3h:'孵化后会怎样？', a3:'在设定的日期和时间，100颗蛋会同时孵化。里面是谁，要到那一刻才会知道。',
+  grid:'100颗蛋', egg:'天选之蛋', no:'编号', status:'状态', waiting:'等待孵化', hatching:'孵化中', inside:'里面是', unknown:'???（孵化日揭晓）',
+  story:'它和其他蛋一模一样，正安静地呼吸着。没有人知道会从这颗蛋里诞生什么。',
+  storyH:'蛋壳出现了裂缝！这颗蛋里的孩子很快就要现身了。',
+  what:n=>`这是什么？ — The Chosen 100 收藏系列的第${n}颗蛋。`,
+  prev:'← 上一个', next:'下一个 →', foot:'© The Chosen 100', alt:n=>`${n}号蛋`},
+};
+const ORDER=['en','ko','ja','zh'];
+
+// 언어 정하기: ?lang= → 저장된 값 → 브라우저 언어
+function pickLang(){
+  const q=new URLSearchParams(location.search).get('lang'); if(T[q])return q;
+  try{const s=localStorage.getItem('c100lang'); if(T[s])return s}catch(e){}
+  const n=(navigator.language||'en').slice(0,2); return T[n]?n:'en';
+}
+let L=pickLang();
+const pad=n=>String(n).padStart(3,'0');
+const isHatched=()=>Date.now()>=HATCH_AT;
+const fmtDate=()=>HATCH_AT.toLocaleString(T[L].loc,{timeZone:'Asia/Seoul',dateStyle:'long',timeStyle:'short'});
+
+const langs=document.getElementById('langs');
+ORDER.forEach(k=>{const b=document.createElement('button');b.textContent=T[k].name;b.dataset.k=k;
+  b.onclick=()=>setLang(k);langs.appendChild(b)});
+
+function setLang(k){
+  L=k; const t=T[k];
+  try{localStorage.setItem('c100lang',k)}catch(e){}
+  const u=new URL(location.href); u.searchParams.set('lang',k); history.replaceState(null,'',u);
+  document.documentElement.lang=k;
+  document.title=t.title+' · The Chosen 100';
+  langs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+  document.querySelectorAll('[data-t]').forEach(el=>el.innerHTML=t[el.dataset.t]);
+  updateDate(); render(); if(dlg.open) open(cur);
+}
+
+const grid=document.getElementById('grid');
+function render(){
+  const t=T[L], h=isHatched(); grid.innerHTML='';
+  for(let n=1;n<=100;n++){
+    const b=document.createElement('button'); b.className='egg'+(h?' hatched':'');
+    b.innerHTML=`<img src="${EGG_IMG}" alt="${t.alt(n)}" loading="lazy" style="animation-delay:${-(n%9)*.35}s"><div class="no">#${pad(n)}</div>`;
+    b.onclick=()=>open(n); grid.appendChild(b);
+  }
+}
+
+const dlg=document.getElementById('dlg'), dc=document.getElementById('dc'); let cur=1;
+function open(n){
+  cur=n; const t=T[L], h=isHatched();
+  dc.innerHTML=`<div class="pic"><img src="${EGG_IMG}" alt="${t.alt(n)}"></div>
+  <div class="info">
+    <div class="kicker">NO. ${pad(n)} / 100</div>
+    <h2>${t.egg} #${pad(n)}</h2>
+    <p class="story">${h?t.storyH:t.story}</p>
+    <dl>
+      <dt>${t.no}</dt><dd>${n} / 100</dd>
+      <dt>${t.status}</dt><dd>${h?t.hatching:t.waiting}</dd>
+      <dt>${t.inside}</dt><dd>${t.unknown}</dd>
+      <dt>${t.hatchLabel}</dt><dd>${fmtDate()} ${t.tz}</dd>
+    </dl>
+    <div class="art">${t.what(n)}</div>
+    <div class="navs"><button id="pv">${t.prev}</button><button id="nx">${t.next}</button></div>
+  </div>`;
+  dc.querySelector('#pv').onclick=()=>open(cur===1?100:cur-1);
+  dc.querySelector('#nx').onclick=()=>open(cur===100?1:cur+1);
+  if(!dlg.open) dlg.showModal();
+  history.replaceState(null,'',location.search+'#'+n);
+}
+document.getElementById('x').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+dlg.addEventListener('close',()=>history.replaceState(null,'',location.pathname+location.search));
+document.addEventListener('keydown',e=>{if(!dlg.open)return;
+  if(e.key==='ArrowRight')open(cur===100?1:cur+1); if(e.key==='ArrowLeft')open(cur===1?100:cur-1)});
+
+// 카운트다운
+const two=n=>String(n).padStart(2,'0'); const hd=document.getElementById('hd');
+let wasHatched=isHatched();
+function updateDate(){ if(isHatched()){hd.textContent=T[L].hatched;hd.classList.add('done')}
+  else hd.textContent=`${T[L].hatchLabel} · ${fmtDate()} ${T[L].tz}`; }
+function tick(){
+  const left=Math.max(0,HATCH_AT-Date.now()), s=Math.floor(left/1000);
+  dd.textContent=Math.floor(s/86400); hh.textContent=two(Math.floor(s%86400/3600));
+  mm.textContent=two(Math.floor(s%3600/60)); ss.textContent=two(s%60);
+  if(!left&&!wasHatched){wasHatched=true;updateDate();render()}
+}
+setLang(L); tick(); setInterval(tick,1000);
+const h0=parseInt(location.hash.slice(1)); if(h0>=1&&h0<=100) open(h0);
+
+// 별 배경
+const c=document.getElementById('stars'), x=c.getContext('2d'); let st=[];
+function size(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;
+  st=Array.from({length:140},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+.3,p:Math.random()*6}))}
+size(); addEventListener('resize',size);
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+(function draw(t){x.clearRect(0,0,c.width,c.height);
+  for(const s of st){x.globalAlpha=.35+.65*Math.abs(Math.sin(s.p+(still?0:t/1400)));x.fillStyle='#fff';
+    x.beginPath();x.arc(s.x,s.y,s.r*devicePixelRatio,0,7);x.fill()}
+  if(!still)requestAnimationFrame(draw)})(0);
+</script>
+</body>
+</html>
