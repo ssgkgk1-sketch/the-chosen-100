@@ -117,10 +117,6 @@ html[lang=ko] .wl h3{font-weight:400}
 .tl span.hatch{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:600}
 .tl i{color:var(--muted);font-style:normal;opacity:.7}
 .tlnote{text-align:center;font-size:12px;color:var(--muted);margin:8px 0 0}
-.prov{max-width:640px;margin:16px auto 0;padding:12px 16px;border:1px dashed var(--line);border-radius:14px;text-align:center}
-.prov b{display:block;font-size:12px;color:var(--gold2);letter-spacing:.08em;margin-bottom:4px}
-.prov code{display:block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--text);word-break:break-all;user-select:all}
-.prov p{margin:6px 0 0;font-size:12px;color:var(--muted);line-height:1.6}
 h2.sec{font-family:var(--head);font-weight:600;text-align:center;color:var(--gold2);margin:48px 0 18px;font-size:26px}
 html[lang=ko] h2.sec{font-weight:400}
 /* 격자 */
@@ -190,7 +186,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:50px;line-
     <div class="prog"><div class="bar"><i id="pbar"></i></div><p id="ptxt"></p></div>
     <div class="tl" id="tl"></div>
     <p class="tlnote" data-t="tlnote"></p>
-    <div class="prov"><b>🔒 PROVENANCE</b><code>5b37a3b286be59600055be4f7e13cd0833c2302972437f4236f771e971266c7f</code><p data-t="prov"></p></div>
   </header>
 
   <section class="about">
@@ -229,7 +224,7 @@ const EGG_IMG = 'art/egg_v1_cut.png?v=2';
 const T = {
 ko:{name:'한국어', loc:'ko-KR', tz:'(한국시간)',
   title:'선택받은 알', sub:'세상에 단 100개만 놓인 부화기. 모든 알은 똑같은 모습으로 같은 날을 기다립니다.<br>그날이 오면 알이 깨지고, 그 안에 누가 있는지 비로소 알게 됩니다.',
-  d:'일',h:'시간',m:'분',s:'초', hatchLabel:'부화일', hatched:'🐣 부화가 시작됐어요!', wlh:'화이트리스트 챌린지', wlspots:'자리', wl1:'버튼을 눌러 #TheChosen100 이 들어간 X 글을 써요.', wl2:'올린 게시물 링크를 제출해요.', wl3:'가장 센스 있는 글 50개를 직접 골라 화이트리스트를 드려요.', wlnote:'화이트리스트는 실제로 글을 쓴 X 계정에 드려요. 지갑 주소는 받지 않아요.', wlx:'𝕏 에 글쓰기', wlf:'게시물 링크 제출하기', wlmint:'알 판매(민팅) 12월 18일 예정 · 더 빨리 열릴 수도 있어요<br>부화(공개)는 12월 25일', tl:['✍️ 화이트리스트 챌린지','📣 당첨 발표','🥚 알 판매 12/18','🐣 부화 12/25'], tlnote:'판매일은 앞당겨질 수 있어요. 정확한 시간은 X에서 알려드려요.', prov:'100마리 그림은 이미 완성되어 잠겨 있어요. 위 값은 그림 100장의 지문(SHA-256)이에요. 부화 날 원본을 공개하면 누구나 그림이 바뀌지 않았는지 확인할 수 있어요.', xtext:'100개의 알, 단 하루의 부화. 내 알에는 누가 있을까? 🥚', hint:'알을 톡톡 두드려 보세요', prog:n=>`부화 준비 ${n}%`, wh:['…안에서 무언가 꿈틀했어요','톡. 안에서도 톡.','따뜻해요. 아주 조금.','아직은 잠들어 있어요','금이 아주 살짝 커진 것 같아요','누군가 귀 기울이고 있어요'],
+  d:'일',h:'시간',m:'분',s:'초', hatchLabel:'부화일', hatched:'🐣 부화가 시작됐어요!', wlh:'화이트리스트 챌린지', wlspots:'자리', wl1:'버튼을 눌러 #TheChosen100 이 들어간 X 글을 써요.', wl2:'올린 게시물 링크를 제출해요.', wl3:'가장 센스 있는 글 50개를 직접 골라 화이트리스트를 드려요.', wlnote:'화이트리스트는 실제로 글을 쓴 X 계정에 드려요. 지갑 주소는 받지 않아요.', wlx:'𝕏 에 글쓰기', wlf:'게시물 링크 제출하기', wlmint:'알 판매(민팅) 12월 18일 예정 · 더 빨리 열릴 수도 있어요<br>부화(공개)는 12월 25일', tl:['✍️ 화이트리스트 챌린지','📣 당첨 발표','🥚 알 판매 12/18','🐣 부화 12/25'], tlnote:'판매일은 앞당겨질 수 있어요. 정확한 시간은 X에서 알려드려요.', xtext:'100개의 알, 단 하루의 부화. 내 알에는 누가 있을까? 🥚', hint:'알을 톡톡 두드려 보세요', prog:n=>`부화 준비 ${n}%`, wh:['…안에서 무언가 꿈틀했어요','톡. 안에서도 톡.','따뜻해요. 아주 조금.','아직은 잠들어 있어요','금이 아주 살짝 커진 것 같아요','누군가 귀 기울이고 있어요'],
   a1h:'이게 무엇인가요?', a1:'100개 한정 NFT 컬렉션 "The Chosen 100"의 부화기 알이에요. 1번부터 100번까지 번호만 다를 뿐, 지금은 모든 알이 똑같아요. 누구도 어떤 알에 무엇이 들었는지 몰라요.',
   a3h:'부화하면 어떻게 되나요?', a3:'정해진 날짜와 시각에 100개의 알이 동시에 깨어나요. 안에 누가 있는지는 그때가 되어야 알 수 있어요.',
   grid:'100개의 알', egg:'선택받은 알', no:'번호', status:'상태', waiting:'부화 대기', hatching:'부화 중', inside:'안에 있는 것', unknown:'??? (부화일에 공개)',
@@ -239,7 +234,7 @@ ko:{name:'한국어', loc:'ko-KR', tz:'(한국시간)',
   prev:'← 이전', next:'다음 →', foot:'공식 채널은 이 사이트와 <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> 뿐이에요.<br>민팅 링크를 DM으로 보내지 않으며, 시드 문구는 절대 묻지 않아요.<br>© The Chosen 100', alt:n=>`${n}번 알`},
 en:{name:'EN', loc:'en-US', tz:'(KST)',
   title:'The Chosen Eggs', sub:'Only 100 incubators exist in the world. Every egg looks exactly the same and waits for the same day.<br>When that day comes, the shells crack — and only then will we know who was inside.',
-  d:'days',h:'hours',m:'min',s:'sec', hatchLabel:'Hatch day', hatched:'🐣 The hatching has begun!', wlh:'Allowlist Challenge', wlspots:'spots', wl1:'Write a post on X with #TheChosen100 using the button.', wl2:'Submit the link to your post.', wl3:'We hand-pick the 50 most creative posts for the allowlist.', wlnote:'The allowlist goes to the X account that actually wrote the post. No wallet address needed.', wlx:'Post on 𝕏', wlf:'Submit your post link', wlmint:'Egg sale (mint) planned for Dec 18 · may open earlier<br>Hatch (reveal) on Dec 25', tl:['✍️ Allowlist challenge','📣 Winners announced','🥚 Egg sale Dec 18','🐣 Hatch Dec 25'], tlnote:'The sale may open earlier. Exact times will be posted on X.', prov:'All 100 artworks are finished and locked. This is the SHA-256 fingerprint of the 100 images. When they hatch, anyone can check that nothing was changed.', xtext:'100 eggs. One hatch day. Who is in mine? 🥚', hint:'Tap the egg', prog:n=>`Hatching ${n}% ready`, wh:['…something moved inside','Tap. A tap back from inside.','It feels warm. Just a little.','Still asleep, for now','The crack looks a little bigger','Someone inside is listening'],
+  d:'days',h:'hours',m:'min',s:'sec', hatchLabel:'Hatch day', hatched:'🐣 The hatching has begun!', wlh:'Allowlist Challenge', wlspots:'spots', wl1:'Write a post on X with #TheChosen100 using the button.', wl2:'Submit the link to your post.', wl3:'We hand-pick the 50 most creative posts for the allowlist.', wlnote:'The allowlist goes to the X account that actually wrote the post. No wallet address needed.', wlx:'Post on 𝕏', wlf:'Submit your post link', wlmint:'Egg sale (mint) planned for Dec 18 · may open earlier<br>Hatch (reveal) on Dec 25', tl:['✍️ Allowlist challenge','📣 Winners announced','🥚 Egg sale Dec 18','🐣 Hatch Dec 25'], tlnote:'The sale may open earlier. Exact times will be posted on X.', xtext:'100 eggs. One hatch day. Who is in mine? 🥚', hint:'Tap the egg', prog:n=>`Hatching ${n}% ready`, wh:['…something moved inside','Tap. A tap back from inside.','It feels warm. Just a little.','Still asleep, for now','The crack looks a little bigger','Someone inside is listening'],
   a1h:'What is this?', a1:'These are the incubator eggs of "The Chosen 100", a limited NFT collection of just 100. They are numbered 1 to 100, but for now every egg is identical. Nobody knows what is inside which egg.',
   a3h:'What happens at hatching?', a3:'At the set date and time, all 100 eggs hatch at once. Who is inside will only be known then.',
   grid:'The 100 Eggs', egg:'Chosen Egg', no:'Number', status:'Status', waiting:'Waiting to hatch', hatching:'Hatching', inside:'Inside', unknown:'??? (revealed on hatch day)',
@@ -249,7 +244,7 @@ en:{name:'EN', loc:'en-US', tz:'(KST)',
   prev:'← Prev', next:'Next →', foot:'Official channels: this site and <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> only.<br>We never send mint links by DM and never ask for your seed phrase.<br>© The Chosen 100', alt:n=>`Egg No. ${n}`},
 ja:{name:'日本語', loc:'ja-JP', tz:'(日本・韓国時間)',
   title:'選ばれし卵', sub:'世界にたった100個だけの孵化器。すべての卵は同じ姿で、同じ日を待っています。<br>その日が来て殻が割れたとき、初めて中に誰がいたのかがわかります。',
-  d:'日',h:'時間',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化が始まりました！', wlh:'ホワイトリスト・チャレンジ', wlspots:'枠', wl1:'ボタンから #TheChosen100 を付けてXに投稿。', wl2:'投稿のリンクを提出。', wl3:'いちばんセンスのある50件を選んでホワイトリストを贈ります。', wlnote:'ホワイトリストは実際に投稿したXアカウントに贈られます。ウォレットアドレスは不要です。', wlx:'𝕏 に投稿する', wlf:'投稿リンクを提出', wlmint:'卵の販売(ミント)は12月18日予定・早まる可能性あり<br>孵化(公開)は12月25日', tl:['✍️ ホワイトリスト・チャレンジ','📣 当選発表','🥚 卵の販売 12/18','🐣 孵化 12/25'], tlnote:'販売日は早まる可能性があります。正確な時間はXでお知らせします。', prov:'100体の作品はすでに完成し、ロックされています。上の値は100枚の画像の指紋(SHA-256)です。孵化の日に原本を公開すれば、誰でも作品が変わっていないことを確認できます。', xtext:'100個の卵、たった一日の孵化。私の卵には誰がいる？ 🥚', hint:'卵をトントンしてみて', prog:n=>`孵化準備 ${n}%`, wh:['…中で何かが動きました','トン。中からもトン。','少しだけ、あたたかい。','まだ眠っています','ひびが少し大きくなったみたい','中で誰かが耳をすませています'],
+  d:'日',h:'時間',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化が始まりました！', wlh:'ホワイトリスト・チャレンジ', wlspots:'枠', wl1:'ボタンから #TheChosen100 を付けてXに投稿。', wl2:'投稿のリンクを提出。', wl3:'いちばんセンスのある50件を選んでホワイトリストを贈ります。', wlnote:'ホワイトリストは実際に投稿したXアカウントに贈られます。ウォレットアドレスは不要です。', wlx:'𝕏 に投稿する', wlf:'投稿リンクを提出', wlmint:'卵の販売(ミント)は12月18日予定・早まる可能性あり<br>孵化(公開)は12月25日', tl:['✍️ ホワイトリスト・チャレンジ','📣 当選発表','🥚 卵の販売 12/18','🐣 孵化 12/25'], tlnote:'販売日は早まる可能性があります。正確な時間はXでお知らせします。', xtext:'100個の卵、たった一日の孵化。私の卵には誰がいる？ 🥚', hint:'卵をトントンしてみて', prog:n=>`孵化準備 ${n}%`, wh:['…中で何かが動きました','トン。中からもトン。','少しだけ、あたたかい。','まだ眠っています','ひびが少し大きくなったみたい','中で誰かが耳をすませています'],
   a1h:'これは何？', a1:'100個限定のNFTコレクション「The Chosen 100」の孵化器の卵です。1番から100番まで番号が違うだけで、今はすべての卵が同じ姿。どの卵に何が入っているかは誰にもわかりません。',
   a3h:'孵化すると？', a3:'決められた日時に、100個の卵が一斉に孵ります。中に誰がいるのかは、そのときまでわかりません。',
   grid:'100個の卵', egg:'選ばれし卵', no:'番号', status:'状態', waiting:'孵化待ち', hatching:'孵化中', inside:'中にいるもの', unknown:'???（孵化日に公開）',
@@ -259,7 +254,7 @@ ja:{name:'日本語', loc:'ja-JP', tz:'(日本・韓国時間)',
   prev:'← 前へ', next:'次へ →', foot:'公式チャンネルはこのサイトと <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> だけです。<br>DMでミントリンクを送ることはなく、シードフレーズを聞くことも絶対にありません。<br>© The Chosen 100', alt:n=>`${n}番の卵`},
 zh:{name:'中文', loc:'zh-CN', tz:'(韩国时间)',
   title:'天选之蛋', sub:'世界上只有100个孵化器。每一颗蛋都长得一模一样，等待着同一天的到来。<br>那一天蛋壳破裂，我们才会知道里面究竟是谁。',
-  d:'天',h:'小时',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化已经开始！', wlh:'白名单挑战', wlspots:'个名额', wl1:'点击按钮，在X发布带 #TheChosen100 的帖子。', wl2:'提交你的帖子链接。', wl3:'我们亲自挑选最有创意的50条帖子发放白名单。', wlnote:'白名单发给真正发帖的X账号。无需钱包地址。', wlx:'在 𝕏 发帖', wlf:'提交帖子链接', wlmint:'蛋的发售(铸造)预计12月18日 · 可能提前<br>孵化(揭晓)在12月25日', tl:['✍️ 白名单挑战','📣 公布名单','🥚 发售 12/18','🐣 孵化 12/25'], tlnote:'发售日可能提前，具体时间将在X公布。', prov:'100件作品已全部完成并锁定。上面是这100张图片的指纹(SHA-256)。孵化当天公开原图后，任何人都可以验证作品没有被更改。', xtext:'100颗蛋，只有一天孵化。我的蛋里会是谁？🥚', hint:'轻轻敲一敲蛋', prog:n=>`孵化准备 ${n}%`, wh:['…里面有什么动了一下','咚。里面也回了一声咚。','有点暖暖的。','还在睡觉呢','裂缝好像又大了一点','里面有谁在静静聆听'],
+  d:'天',h:'小时',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化已经开始！', wlh:'白名单挑战', wlspots:'个名额', wl1:'点击按钮，在X发布带 #TheChosen100 的帖子。', wl2:'提交你的帖子链接。', wl3:'我们亲自挑选最有创意的50条帖子发放白名单。', wlnote:'白名单发给真正发帖的X账号。无需钱包地址。', wlx:'在 𝕏 发帖', wlf:'提交帖子链接', wlmint:'蛋的发售(铸造)预计12月18日 · 可能提前<br>孵化(揭晓)在12月25日', tl:['✍️ 白名单挑战','📣 公布名单','🥚 发售 12/18','🐣 孵化 12/25'], tlnote:'发售日可能提前，具体时间将在X公布。', xtext:'100颗蛋，只有一天孵化。我的蛋里会是谁？🥚', hint:'轻轻敲一敲蛋', prog:n=>`孵化准备 ${n}%`, wh:['…里面有什么动了一下','咚。里面也回了一声咚。','有点暖暖的。','还在睡觉呢','裂缝好像又大了一点','里面有谁在静静聆听'],
   a1h:'这是什么？', a1:'这是限量100个的NFT收藏系列「The Chosen 100」的孵化蛋。编号从1到100，除了编号以外，现在每颗蛋都完全相同。没有人知道哪颗蛋里藏着什么。',
   a3h:'孵化后会怎样？', a3:'在设定的日期和时间，100颗蛋会同时孵化。里面是谁，要到那一刻才会知道。',
   grid:'100颗蛋', egg:'天选之蛋', no:'编号', status:'状态', waiting:'等待孵化', hatching:'孵化中', inside:'里面是', unknown:'???（孵化日揭晓）',
