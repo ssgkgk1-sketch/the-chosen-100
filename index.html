@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Chosen 100</title>
 <meta name="description" content="100 identical eggs. One hatch day: December 25, 2026. Who is inside will only be known then.">
+<meta name="theme-color" content="#0b0f2a">
 <link rel="icon" type="image/png" href="art/favicon.png">
 <link rel="apple-touch-icon" href="art/apple-touch-icon.png">
 <meta property="og:type" content="website">
@@ -23,421 +24,347 @@
 <meta name="twitter:description" content="100 identical eggs hatch at once on December 25, 2026.">
 <meta name="twitter:image" content="https://ssgkgk1-sketch.github.io/the-chosen-100/art/og-card.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=M+PLUS+Rounded+1c:wght@500;800&family=ZCOOL+KuaiLe&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0d1026; --bg2:#171b3d; --card:#1d2250; --line:#2f3570;
-  --gold:#f5c451; --gold2:#ffe39a; --text:#f4f1ff; --muted:#a9acd6;
-
-  --body:"Gowun Dodum",system-ui,sans-serif; --head:Jua,sans-serif;
+  --bg0:#070a1c; --bg1:#121a44; --gold:#f6c96a; --gold2:#ffe7ad; --txt:#eef0ff; --mute:#a6acd6;
+  --glass:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
 }
-html[lang=en]{--body:Fredoka,system-ui,sans-serif;--head:Fredoka,sans-serif}
-html[lang=ja]{--body:"M PLUS Rounded 1c",system-ui,sans-serif;--head:"M PLUS Rounded 1c",sans-serif}
-html[lang=zh]{--body:system-ui,"PingFang SC","Microsoft YaHei",sans-serif;--head:"ZCOOL KuaiLe",sans-serif}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#2a2f6e 0%,var(--bg) 60%) fixed,var(--bg);
-  color:var(--text);font-family:var(--body);min-height:100vh;overflow-x:hidden}
-#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
-main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:24px 16px 80px}
-.top{display:flex;justify-content:flex-end}
-.langs{display:flex;gap:4px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:999px;padding:4px}
-.langs button{font:inherit;font-size:13px;color:var(--muted);background:none;border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
-.langs button.on{background:var(--gold);color:var(--bg)}
-header{text-align:center;margin-top:16px}
-.kicker{color:var(--gold);letter-spacing:.3em;font-size:13px;font-family:Fredoka,sans-serif}
-h1{font-family:var(--head);font-size:clamp(34px,6vw,58px);margin:10px 0 8px;font-weight:800;
-  background:linear-gradient(180deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
-html[lang=ko] h1{font-weight:400}
-.sub{color:var(--muted);max-width:600px;margin:0 auto;line-height:1.75}
-.hero{display:flex;flex-direction:column;align-items:center;margin:20px 0 4px}
-.heroEgg{position:relative;width:min(220px,50vw);border:0;background:none;padding:0;cursor:pointer;animation:bob 3.2s ease-in-out infinite;
-  -webkit-tap-highlight-color:transparent}
-.heroEgg:focus-visible{outline:2px dashed var(--gold);outline-offset:8px;border-radius:40%}
-.heroEgg .shake{position:relative;transform-origin:50% 90%}
-.heroEgg.knock .shake{animation:knock .6s ease-in-out}
-.heroEgg img{display:block;width:100%;filter:drop-shadow(0 18px var(--gl,30px) rgba(245,196,81,var(--ga,.25)))}
-.heroEgg svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.crack .gl{stroke:#ffd76a;stroke-width:9;opacity:var(--cg,.4);filter:blur(3px)}
-.crack .ln{stroke:#5b3a10;stroke-width:3}
-.crack path{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.spark{position:absolute;left:50%;top:45%;width:6px;height:6px;border-radius:50%;background:var(--gold2);
-  box-shadow:0 0 8px var(--gold);pointer-events:none;animation:spark .8s ease-out forwards}
-@keyframes spark{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
-@keyframes knock{15%{transform:rotate(-7deg)}35%{transform:rotate(6deg)}55%{transform:rotate(-4deg)}75%{transform:rotate(2deg)}100%{transform:none}}
-.whisper{min-height:22px;margin-top:10px;font-size:14px;color:var(--gold2);opacity:0;transition:opacity .4s}
-.whisper.on{opacity:1}
-.hint{font-size:12px;color:var(--muted)}
-.tapc path{fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke-dashoffset .22s ease-out}
-.tapc .gl{stroke:#ffd76a;stroke-width:9;opacity:.55;filter:blur(2.5px)}
-.tapc .ln{stroke:#5b3a10;stroke-width:3.4}
-.tapc{transition:opacity .9s}
-.tapc.fade{opacity:0}
-.chip{position:absolute;width:7px;height:6px;background:#fbf3e4;border:1px solid #c9b48f;pointer-events:none;
-  clip-path:polygon(0 30%,45% 0,100% 25%,80% 100%,15% 85%);animation:chip .9s cubic-bezier(.3,.1,.7,1) forwards}
-@keyframes chip{to{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0}}
-.hintRow{display:flex;align-items:center;gap:8px;margin-top:2px}
-.snd{font:inherit;font-size:14px;line-height:1;background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:4px 9px;cursor:pointer}
-.snd:hover{border-color:var(--gold);color:var(--gold2)}
-
-.prog{width:min(320px,80vw);margin:10px auto 0}
-.prog .bar{height:6px;border-radius:99px;background:var(--card);border:1px solid var(--line);overflow:hidden}
-.prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:99px}
-.prog p{margin:6px 0 0;font-size:12px;color:var(--muted);text-align:center}
-@media (prefers-reduced-motion:reduce){.heroEgg,.heroEgg.knock .shake,.spark,.chip{animation:none!important}.chip{display:none}}
-.countdown{display:flex;justify-content:center;gap:10px;margin:18px 0 8px}
-.cd{background:var(--card);border:1px solid var(--line);border-radius:14px;min-width:78px;padding:12px 8px;text-align:center}
-.cd b{display:block;font-family:Fredoka,sans-serif;font-size:34px;font-weight:600;color:var(--gold2)}
-.cd span{font-size:12px;color:var(--muted)}
-.hatchdate{text-align:center;color:var(--muted);font-size:14px}
-.hatchdate.done{color:var(--gold2)}
-/* 소개 */
-.about{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:44px 0 10px}
-.about article{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:22px}
-.about h3{font-family:var(--head);font-weight:600;color:var(--gold2);margin:0 0 10px;font-size:20px}
-html[lang=ko] .about h3{font-weight:400}
-.about p{margin:0;line-height:1.75;color:#dcdaf5;font-size:15px}
-.about .ic{font-size:26px}
-.wl{margin:18px 0 0;background:linear-gradient(135deg,#2a2460,#1b1f4a);border:1px solid var(--gold);border-radius:20px;padding:26px 24px;
-  display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
-.wl h3{font-family:var(--head);color:var(--gold2);font-size:24px;margin:0 0 6px;font-weight:600}
-html[lang=ko] .wl h3{font-weight:400}
-.wl .big{font-family:Fredoka,sans-serif;font-size:44px;font-weight:600;color:var(--gold2);line-height:1}
-.wl .big small{font-size:15px;color:var(--muted);font-weight:500;margin-left:6px}
-.wl ol{margin:12px 0 0;padding-left:20px;line-height:1.8;color:#dcdaf5;font-size:15px}
-.wl .note{font-size:13px;color:var(--muted);margin:12px 0 0;line-height:1.6}
-.wl .btns{display:flex;flex-direction:column;gap:10px}
-.wl a.btn{display:block;text-align:center;text-decoration:none;font-weight:600;border-radius:14px;padding:14px 16px;font-size:16px}
-.wl a.x{background:var(--gold);color:var(--bg)} .wl a.x:hover{background:var(--gold2)}
-.wl a.f{border:1px solid var(--gold);color:var(--gold2)} .wl a.f:hover{background:rgba(245,196,81,.1)}
-.wl .mint{font-size:13px;color:var(--gold2);text-align:center;margin-top:4px}
-@media (max-width:760px){.wl{grid-template-columns:1fr}}
-.tl{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px;margin:18px auto 0;max-width:640px}
-.tl span{font-size:13px;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--muted);white-space:nowrap}
-.tl span.now{border-color:var(--gold);color:var(--gold2)}
-.tl span.hatch{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:600}
-.tl i{color:var(--muted);font-style:normal;opacity:.7}
-.tlnote{text-align:center;font-size:12px;color:var(--muted);margin:8px 0 0}
-h2.sec{font-family:var(--head);font-weight:600;text-align:center;color:var(--gold2);margin:48px 0 18px;font-size:26px}
-html[lang=ko] h2.sec{font-weight:400}
-/* 격자 */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
-.egg{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);
-  border-radius:16px;padding:10px 8px;cursor:pointer;text-align:center;transition:transform .2s,border-color .2s;font:inherit;color:inherit}
-.egg:hover,.egg:focus-visible{transform:translateY(-4px);border-color:var(--gold);outline:none}
-.egg img{width:78%;aspect-ratio:3/4;object-fit:contain;animation:bob 3.2s ease-in-out infinite;filter:drop-shadow(0 6px 12px rgba(0,0,0,.45))}
-.egg .no{font-family:Fredoka,sans-serif;font-weight:600;font-size:17px;color:var(--gold2);margin-top:4px}
-.egg.hatched img{animation:wobble .5s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-5px)}}
-@keyframes wobble{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
-@media (prefers-reduced-motion:reduce){img{animation:none!important}}
-/* 팝업 */
-dialog{border:1px solid var(--line);border-radius:22px;background:var(--bg2);color:var(--text);max-width:760px;width:calc(100% - 32px);padding:0}
-dialog::backdrop{background:rgba(5,6,20,.75);backdrop-filter:blur(4px)}
-.d{display:grid;grid-template-columns:1fr 1fr}
-.d .pic{background:radial-gradient(circle at 50% 45%,#3a3f8a,var(--bg) 70%);padding:30px 40px;display:flex;align-items:center;justify-content:center}
-.d .pic img{width:100%;max-width:260px;animation:bob 3.2s ease-in-out infinite}
-.d .info{padding:26px 24px}
-.d h2{font-family:var(--head);font-weight:600;font-size:30px;margin:4px 0 8px;color:var(--gold2)}
-html[lang=ko] .d h2{font-weight:400}
-.d .story{line-height:1.8;color:#dcdaf5;margin:0}
-.d dl{display:grid;grid-template-columns:auto 1fr;gap:7px 14px;margin:18px 0;font-size:14px}
-.d dt{color:var(--muted)} .d dd{margin:0}
-.d .art{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;line-height:1.7}
-.close{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--muted);font-size:26px;cursor:pointer;z-index:2}
-.navs{display:flex;gap:8px;margin-top:16px}
-.navs button{flex:1;font:inherit;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px;cursor:pointer}
-@media (max-width:760px){.about{grid-template-columns:1fr}}
-@media (max-width:640px){.d{grid-template-columns:1fr}.d .pic{padding:20px 80px}.grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
-  .cd{min-width:64px}.cd b{font-size:26px}.langs button{padding:6px 9px}}
-footer{text-align:center;color:var(--muted);font-size:13px;margin-top:50px;line-height:1.7}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Noto Sans KR',system-ui,sans-serif;color:var(--txt);overflow-x:hidden;
+  background:radial-gradient(1200px 700px at 70% 20%,#26306e 0%,transparent 60%),radial-gradient(900px 600px at 10% 90%,#2b1b4d 0%,transparent 60%),linear-gradient(var(--bg1),var(--bg0));
+  background-attachment:fixed}
+body:after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.06;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+#stars{position:fixed;inset:0;z-index:0}
+.app{position:relative;z-index:2;min-height:100%;display:flex;flex-direction:column}
+/* header */
+header{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 28px;
+  background:linear-gradient(rgba(7,10,28,.75),rgba(7,10,28,0));backdrop-filter:blur(6px)}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces';font-weight:700;font-size:19px;letter-spacing:.3px}
+.brand img{width:30px;filter:drop-shadow(0 0 10px rgba(246,201,106,.6))}
+.tabs{position:relative;display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(14px)}
+.tabs button{all:unset;cursor:pointer;position:relative;z-index:1;padding:10px 22px;border-radius:999px;font-weight:500;font-size:15px;color:var(--mute);transition:color .3s;white-space:nowrap}
+.tabs button[aria-selected=true]{color:#1b1530}
+.tabs button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pill{position:absolute;top:5px;bottom:5px;left:5px;border-radius:999px;background:linear-gradient(135deg,var(--gold2),var(--gold));
+  box-shadow:0 6px 24px rgba(246,201,106,.35);transition:transform .45s cubic-bezier(.6,.05,.2,1),width .45s cubic-bezier(.6,.05,.2,1)}
+.hright{justify-self:end;display:flex;gap:8px}
+html[lang=ja] body{font-family:'Noto Sans JP',system-ui,sans-serif}html[lang=zh] body{font-family:'Noto Sans SC',system-ui,sans-serif}html[lang=en] body{font-family:'Noto Sans KR',system-ui,sans-serif}
+.ghost{cursor:pointer;font-family:inherit}
+.lang{position:relative}.menu{position:absolute;right:0;top:calc(100% + 8px);min-width:140px;padding:6px;border-radius:14px;background:rgba(16,20,52,.95);border:1px solid var(--line);backdrop-filter:blur(12px);box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;transform:translateY(-6px);pointer-events:none;transition:.2s}
+.lang.open .menu{opacity:1;transform:none;pointer-events:auto}
+.menu button{all:unset;cursor:pointer;display:flex;justify-content:space-between;width:100%;box-sizing:border-box;padding:9px 12px;border-radius:9px;font-size:14px;color:var(--txt)}
+.menu button:hover{background:rgba(255,255,255,.07)}.menu button.on{color:var(--gold)}.menu button.on:after{content:'✓'}
+.ghost{font-size:13px;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none;background:var(--glass)}
+/* panels */
+main{flex:1;display:grid}
+.panel{grid-area:1/1;padding:30px 28px 60px;max-width:1180px;width:100%;margin:0 auto;opacity:0;transform:translateY(18px);pointer-events:none;
+  transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1);visibility:hidden}
+.panel:not(.on){height:0;overflow:hidden;padding-top:0;padding-bottom:0}
+.panel.on{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(246,201,106,.3);border-radius:999px;padding:6px 14px;background:rgba(246,201,106,.06)}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1,h2{font-family:'Fraunces';font-weight:700;letter-spacing:-.5px}
+.grad{background:linear-gradient(100deg,#fff 20%,var(--gold2) 55%,var(--gold) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* tab 1 */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;min-height:calc(100vh - 170px)}
+.hero h1{font-size:clamp(52px,7.4vw,104px);line-height:.95;margin:20px 0 18px}
+.lead{font-size:18px;line-height:1.75;color:var(--mute);max-width:480px}
+.cd{display:flex;gap:12px;margin:30px 0}
+.cd div{width:92px;padding:14px 0 12px;text-align:center;border-radius:18px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.cd b{display:block;font-family:'Fraunces';font-size:38px;font-weight:500;font-variant-numeric:tabular-nums}
+.cd small{font-size:12px;color:var(--mute);letter-spacing:1px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:14px;font-weight:700;font-size:15px;transition:transform .2s,box-shadow .2s}
+.btn.pri{color:#1b1530;background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 10px 30px rgba(246,201,106,.3)}
+.btn.sec{border:1px solid var(--line);background:var(--glass)}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri:hover{box-shadow:0 14px 40px rgba(246,201,106,.45)}
+.eggstage{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center;perspective:900px;cursor:pointer;user-select:none}
+.ring{position:absolute;inset:6%;border-radius:50%;border:1px dashed rgba(246,201,106,.35);animation:spin 40s linear infinite}
+.ring.r2{inset:15%;border-style:solid;border-color:rgba(255,255,255,.08);animation-duration:70s;animation-direction:reverse}
+.ring:before{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.halo{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,rgba(255,215,130,.55),rgba(255,215,130,.08) 45%,transparent 68%);animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.08);opacity:.75}}
+.egg{position:absolute;inset:14% 18% 10%;transform-style:preserve-3d;transition:transform .25s ease-out}
+.egg img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5));animation:float 5s ease-in-out infinite}
+.egg svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.egg svg path{fill:none;stroke:#2a1d10;stroke-width:1.3;stroke-linecap:round;opacity:.85;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .5s}
+@keyframes float{50%{transform:translateY(-12px)}}
+.egg.knock{animation:knock .45s}
+@keyframes knock{20%{transform:rotate(-6deg)}45%{transform:rotate(5deg)}70%{transform:rotate(-2deg)}}
+.hint{position:absolute;bottom:2%;left:50%;transform:translateX(-50%);font-size:13px;color:var(--mute);white-space:nowrap;display:flex;align-items:center;gap:8px}
+.snd{all:unset;cursor:pointer;font-size:13px;padding:4px 9px;border-radius:99px;border:1px solid var(--line);background:var(--glass)}.snd:hover{border-color:var(--gold)}
+.spark{position:absolute;left:50%;top:45%;width:7px;height:7px;border-radius:50%;background:var(--gold2);box-shadow:0 0 10px var(--gold);pointer-events:none;animation:spk .8s ease-out forwards}
+@keyframes spk{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+.tile.hl{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 10px 30px rgba(246,201,106,.3)}
+.whisper{position:absolute;left:50%;top:8%;transform:translateX(-50%);font-size:14px;color:var(--gold2);opacity:0;transition:opacity .4s,transform .6s;pointer-events:none;white-space:nowrap}
+.whisper.show{opacity:1;transform:translate(-50%,-10px)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.stat{padding:20px 22px;border-radius:20px;background:var(--glass);border:1px solid var(--line)}
+.stat small{color:var(--mute);font-size:12.5px;letter-spacing:1.5px}
+.stat b{display:block;font-family:'Fraunces';font-size:30px;margin-top:4px}
+.stat span{font-size:13px;color:var(--mute)}
+.prog{margin-top:14px;height:8px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:9px;box-shadow:0 0 14px var(--gold)}
+/* tab 2 */
+.sechead{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:10px 0 28px;flex-wrap:wrap}
+.sechead h2{font-size:clamp(40px,5vw,64px);line-height:1}
+.sechead p{color:var(--mute);max-width:420px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:12px}
+.tile{all:unset;cursor:pointer;position:relative;aspect-ratio:4/5;border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));
+  border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;opacity:0;transform:translateY(10px)}
+.panel.on .tile{animation:rise .5s forwards;animation-delay:calc(var(--i)*8ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+.tile:before{content:'';position:absolute;inset:auto 15% 8%;height:22%;border-radius:50%;background:radial-gradient(rgba(246,201,106,.35),transparent 70%);opacity:.6;transition:opacity .3s}
+.tile img{width:70%;position:relative;transition:transform .35s}
+.tile span{position:absolute;top:7px;left:9px;font-family:'Fraunces';font-size:11.5px;color:var(--mute)}
+.tile:hover,.tile:focus-visible{border-color:rgba(246,201,106,.55);box-shadow:0 10px 30px rgba(246,201,106,.18);transform:translateY(-4px)}
+.tile:hover img{transform:scale(1.08) rotate(-4deg)}
+.tile:hover:before{opacity:1}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;z-index:30;padding:12px 20px;border-radius:14px;
+  background:rgba(20,24,60,.9);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:14px;transition:.35s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+/* tab 3 */
+.wl{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+.bigcard{padding:36px;border-radius:28px;background:linear-gradient(160deg,rgba(246,201,106,.16),rgba(255,255,255,.03) 60%);border:1px solid rgba(246,201,106,.3);position:relative;overflow:hidden}
+.bigcard .num{font-family:'Fraunces';font-size:120px;line-height:.9;font-weight:700}
+.bigcard p{color:var(--mute);line-height:1.75;margin:14px 0 24px}
+.tag{display:inline-block;font-weight:700;color:var(--gold2);background:rgba(246,201,106,.12);border-radius:8px;padding:2px 8px}
+.steps{display:grid;gap:12px}
+.st{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center;padding:20px 22px;border-radius:20px;background:var(--glass);border:1px solid var(--line)}
+.st em{font-style:normal;width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-family:'Fraunces';font-size:22px;color:var(--gold);border:1px solid rgba(246,201,106,.35);background:rgba(246,201,106,.07)}
+.st b{font-size:17px}.st p{color:var(--mute);font-size:14px;margin-top:3px;line-height:1.6}
+.tl{margin-top:26px;padding:24px;border-radius:22px;background:var(--glass);border:1px solid var(--line)}
+.tl h3{font-size:14px;letter-spacing:2px;color:var(--mute);font-weight:500;margin-bottom:18px}
+.road{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.road:before{content:'';position:absolute;top:7px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--gold),rgba(255,255,255,.15))}
+.road div{text-align:center;position:relative;font-size:13.5px;color:var(--mute)}
+.road div:before{content:'';display:block;width:16px;height:16px;margin:0 auto 12px;border-radius:50%;background:var(--bg1);border:2px solid rgba(255,255,255,.35)}
+.road div.now:before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 14px var(--gold)}
+.road b{display:block;color:var(--txt);font-family:'Fraunces';font-size:18px;margin-bottom:2px}
+.safe{margin-top:14px;font-size:13px;color:var(--mute);display:flex;gap:8px;align-items:center}
+footer{position:relative;z-index:2;text-align:center;padding:22px;font-size:12.5px;color:var(--mute);border-top:1px solid var(--line)}
+@media (max-width:860px){
+  header{grid-template-columns:1fr auto;padding:14px 16px;gap:10px}
+  .tabs{grid-column:1/-1;grid-row:2;justify-self:center}
+  .tabs button{padding:9px 15px;font-size:14px}
+  .panel{padding:20px 16px 50px}
+  .hero{grid-template-columns:1fr;min-height:auto;gap:10px}.eggstage{max-width:360px;order:-1}
+  .cd div{width:auto;flex:1}.stats{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(5,1fr);gap:8px}
+  .tile img{width:60%;margin-top:12%}.tile span{font-size:9.5px;top:5px;left:7px}
+  .wl{grid-template-columns:1fr}.bigcard .num{font-size:90px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.tile{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <canvas id="stars"></canvas>
+<div class="app">
+<header>
+  <div class="brand"><img src="art/egg_v1_cut.png?v=2" alt="">The Chosen 100</div>
+  <nav class="tabs" role="tablist" id="tabs">
+    <span class="pill" id="pill"></span>
+    <button role="tab" data-t="hatch" aria-selected="true" data-i="tab1">부화장</button>
+    <button role="tab" data-t="eggs" aria-selected="false" data-i="tab2">알 100개</button>
+    <button role="tab" data-t="wl" aria-selected="false" data-i="tab3">화이트리스트</button>
+  </nav>
+  <div class="hright"><div class="lang" id="lang"><button class="ghost" id="langBtn" aria-haspopup="true" aria-expanded="false">🌐 <span id="langName">KO</span> ▾</button><div class="menu" id="langMenu"></div></div><a class="ghost" href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer">𝕏</a></div>
+</header>
+
 <main>
-  <div class="top"><nav class="langs" id="langs" aria-label="Language"></nav></div>
-  <header>
-    <div class="kicker">THE CHOSEN 100</div>
-    <h1 data-t="title"></h1>
-    <p class="sub" data-t="sub"></p>
+  <!-- TAB 1 -->
+  <section class="panel on" id="p-hatch" role="tabpanel">
     <div class="hero">
-      <button class="heroEgg" id="heroEgg" type="button">
-        <div class="shake">
-          <img src="art/egg_v1_cut.png?v=2" alt="" id="heroImg">
-          <svg viewBox="0 0 479 640" aria-hidden="true" id="cracks">
-            <g class="crack"><path class="gl" pathLength="1" d="M306 10 L296 30 L312 46 L300 66"/><path class="ln" pathLength="1" d="M306 10 L296 30 L312 46 L300 66"/></g>
-            <g class="crack"><path class="gl" pathLength="1" d="M66 200 L54 228 L70 252 L56 282 L68 306"/><path class="ln" pathLength="1" d="M66 200 L54 228 L70 252 L56 282 L68 306"/></g>
-            <g class="crack"><path class="gl" pathLength="1" d="M410 192 L424 220 L408 246 L422 274 L412 298"/><path class="ln" pathLength="1" d="M410 192 L424 220 L408 246 L422 274 L412 298"/></g>
-            <g class="crack"><path class="gl" pathLength="1" d="M176 360 L194 346 L214 362 L236 348 L256 362"/><path class="ln" pathLength="1" d="M176 360 L194 346 L214 362 L236 348 L256 362"/></g>
-          </svg>
-          <svg viewBox="0 0 479 640" aria-hidden="true" id="tapCracks"></svg>
+      <div>
+        <span class="eyebrow"><i></i><span data-i="eb1">Incubating · Hatch 12.25</span></span>
+        <h1><span class="grad">The Chosen</span><br>100</h1>
+        <p class="lead" data-i="lead"></p>
+        <div class="cd" id="cd"></div>
+        <div class="ctas"><button class="btn pri" data-go="eggs" data-i="cta1"></button><button class="btn sec" data-go="wl" data-i="cta2"></button></div>
+      </div>
+      <div class="eggstage" id="stage">
+        <div class="halo"></div><div class="ring"></div><div class="ring r2"></div>
+        <div class="whisper" id="whisper"></div>
+        <div class="egg" id="egg"><img src="art/egg_v1_cut.png?v=2" alt="The Chosen 100 egg">
+          <svg viewBox="0 0 100 100"><path pathLength="1" d="M50 26 L47 34 L53 39 L48 46"/><path pathLength="1" d="M53 39 L60 42 L58 49"/><path pathLength="1" d="M48 46 L41 49 L43 55"/></svg>
         </div>
-      </button>
-      <div class="whisper" id="whisper" aria-live="polite"></div>
-      <div class="hintRow"><div class="hint" data-t="hint"></div><button class="snd" id="snd" type="button"></button></div>
+        <div class="hint"><span data-i="hint"></span> <button class="snd" id="snd" type="button"></button></div>
+      </div>
     </div>
-    <div class="countdown">
-      <div class="cd"><b id="dd">--</b><span data-t="d"></span></div>
-      <div class="cd"><b id="hh">--</b><span data-t="h"></span></div>
-      <div class="cd"><b id="mm">--</b><span data-t="m"></span></div>
-      <div class="cd"><b id="ss">--</b><span data-t="s"></span></div>
-    </div>
-    <p class="hatchdate" id="hd"></p>
-    <div class="prog"><div class="bar"><i id="pbar"></i></div><p id="ptxt"></p></div>
-    <div class="tl" id="tl"></div>
-    <p class="tlnote" data-t="tlnote"></p>
-  </header>
-
-  <section class="about">
-    <article><div class="ic">🥚</div><h3 data-t="a1h"></h3><p data-t="a1"></p></article>
-    <article><div class="ic">🐣</div><h3 data-t="a3h"></h3><p data-t="a3"></p></article>
-  </section>
-
-
-  <section class="wl" id="allowlist">
-    <div>
-      <h3 data-t="wlh"></h3>
-      <div class="big">50<small data-t="wlspots"></small></div>
-      <ol><li data-t="wl1"></li><li data-t="wl2"></li><li data-t="wl3"></li></ol>
-      <p class="note" data-t="wlnote"></p>
-    </div>
-    <div class="btns">
-      <a class="btn x" id="xPost" target="_blank" rel="noopener noreferrer" data-t="wlx"></a>
-      <a class="btn f" href="https://docs.google.com/forms/d/e/1FAIpQLSeAnWlCZj3gvX93WeTvpqy2Q96i4ISJsMtgeYEx2Se47jFpTA/viewform" target="_blank" rel="noopener noreferrer" data-t="wlf"></a>
-      <div class="mint" data-t="wlmint"></div>
+    <div class="stats">
+      <div class="stat"><small>EGGS</small><b>100</b><span data-i="st1"></span></div>
+      <div class="stat"><small>SALE</small><b>12.18</b><span data-i="st2"></span></div>
+      <div class="stat"><small>HATCH</small><b>12.25</b><span><span data-i="st3"></span> <b id="pct" style="display:inline;font-size:13px;font-family:inherit">0%</b></span><div class="prog"><i id="bar"></i></div></div>
     </div>
   </section>
 
-  <h2 class="sec" data-t="grid"></h2>
-  <section class="grid" id="grid"></section>
+  <!-- TAB 2 -->
+  <section class="panel" id="p-eggs" role="tabpanel">
+    <div class="sechead">
+      <div><span class="eyebrow"><i></i><span data-i="eb2">Collection</span></span><h2 style="margin-top:14px">100 Eggs</h2></div>
+      <p data-i="eggsP"></p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
 
-  <footer data-t="foot"></footer>
+  <!-- TAB 3 -->
+  <section class="panel" id="p-wl" role="tabpanel">
+    <div class="sechead">
+      <div><span class="eyebrow"><i></i><span data-i="eb3">Allowlist Challenge</span></span><h2 style="margin-top:14px">Get Chosen</h2></div>
+      <p data-i="wlP"></p>
+    </div>
+    <div class="wl">
+      <div class="bigcard">
+        <div class="num grad">50</div>
+        <div style="font-weight:700;font-size:18px;margin-top:6px" data-i="spots"></div>
+        <p data-i="wlBody"></p>
+        <div class="ctas"><a class="btn pri" id="xBtn" href="#" target="_blank" rel="noopener noreferrer" data-i="wlx"></a><a class="btn sec" href="https://docs.google.com/forms/d/e/1FAIpQLSeAnWlCZj3gvX93WeTvpqy2Q96i4ISJsMtgeYEx2Se47jFpTA/viewform" target="_blank" rel="noopener noreferrer" data-i="wlf"></a></div>
+      </div>
+      <div>
+        <div class="steps">
+          <div class="st"><em>1</em><div><b data-i="s1b"></b><p data-i="s1p"></p></div></div>
+          <div class="st"><em>2</em><div><b data-i="s2b"></b><p data-i="s2p"></p></div></div>
+          <div class="st"><em>3</em><div><b data-i="s3b"></b><p data-i="s3p"></p></div></div>
+        </div>
+        <div class="tl"><h3>ROADMAP</h3>
+          <div class="road">
+            <div class="now"><b>NOW</b><span data-i="r1"></span></div><div><b>DEC</b><span data-i="r2"></span></div><div><b>12.18</b><span data-i="r3"></span></div><div><b>12.25</b><span data-i="r4"></span></div>
+          </div>
+        </div>
+        <div class="safe">🔒 <span data-i="safe"></span></div>
+      </div>
+    </div>
+  </section>
 </main>
-
-<dialog id="dlg"><button class="close" id="x" aria-label="close">×</button><div class="d" id="dc"></div></dialog>
+<footer><span data-i="foot"></span> · © 2026 The Chosen 100</footer>
+</div>
+<div class="toast" id="toast"></div>
 
 <script>
-// ===== 설정 =====
-const HATCH_AT = new Date('2026-12-25T00:00:00+09:00'); // 부화 날짜 (한국시간)
-const EGG_IMG = 'art/egg_v1_cut.png?v=2';
-
-const T = {
-ko:{name:'한국어', loc:'ko-KR', tz:'(한국시간)',
-  title:'선택받은 알', sub:'세상에 단 100개만 놓인 부화기. 모든 알은 똑같은 모습으로 같은 날을 기다립니다.<br>그날이 오면 알이 깨지고, 그 안에 누가 있는지 비로소 알게 됩니다.',
-  d:'일',h:'시간',m:'분',s:'초', hatchLabel:'부화일', hatched:'🐣 부화가 시작됐어요!', wlh:'화이트리스트 챌린지', wlspots:'자리', wl1:'버튼을 눌러 #TheChosen100 이 들어간 X 글을 써요.', wl2:'올린 게시물 링크를 제출해요.', wl3:'가장 센스 있는 글 50개를 직접 골라 화이트리스트를 드려요.', wlnote:'화이트리스트는 실제로 글을 쓴 X 계정에 드려요. 지갑 주소는 받지 않아요.', wlx:'𝕏 에 글쓰기', wlf:'게시물 링크 제출하기', wlmint:'알 판매(민팅) 12월 18일 예정 · 더 빨리 열릴 수도 있어요<br>부화(공개)는 12월 25일', tl:['✍️ 화이트리스트 챌린지','📣 당첨 발표','🥚 알 판매 12/18','🐣 부화 12/25'], tlnote:'판매일은 앞당겨질 수 있어요. 정확한 시간은 X에서 알려드려요.', xtext:'100개의 알, 단 하루의 부화. 내 알에는 누가 있을까? 🥚', hint:'알을 톡톡 두드려 보세요', prog:n=>`부화 준비 ${n}%`, wh:['…안에서 무언가 꿈틀했어요','톡. 안에서도 톡.','따뜻해요. 아주 조금.','아직은 잠들어 있어요','금이 아주 살짝 커진 것 같아요','누군가 귀 기울이고 있어요'],
-  a1h:'이게 무엇인가요?', a1:'100개 한정 NFT 컬렉션 "The Chosen 100"의 부화기 알이에요. 1번부터 100번까지 번호만 다를 뿐, 지금은 모든 알이 똑같아요. 누구도 어떤 알에 무엇이 들었는지 몰라요.',
-  a3h:'부화하면 어떻게 되나요?', a3:'정해진 날짜와 시각에 100개의 알이 동시에 깨어나요. 안에 누가 있는지는 그때가 되어야 알 수 있어요.',
-  grid:'100개의 알', egg:'선택받은 알', no:'번호', status:'상태', waiting:'부화 대기', hatching:'부화 중', inside:'안에 있는 것', unknown:'??? (부화일에 공개)',
-  story:'모든 알과 똑같은 모습으로 조용히 숨 쉬고 있어요. 이 알에서 누가 태어날지는 아무도 몰라요.',
-  storyH:'알에 금이 가기 시작했어요! 곧 이 알의 아이가 모습을 드러냅니다.',
-  what:n=>`무엇인가요? — The Chosen 100 컬렉션의 ${n}번째 알입니다.`,
-  prev:'← 이전', next:'다음 →', foot:'공식 채널은 이 사이트와 <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> 뿐이에요.<br>민팅 링크를 DM으로 보내지 않으며, 시드 문구는 절대 묻지 않아요.<br>© The Chosen 100', alt:n=>`${n}번 알`},
-en:{name:'EN', loc:'en-US', tz:'(KST)',
-  title:'The Chosen Eggs', sub:'Only 100 incubators exist in the world. Every egg looks exactly the same and waits for the same day.<br>When that day comes, the shells crack — and only then will we know who was inside.',
-  d:'days',h:'hours',m:'min',s:'sec', hatchLabel:'Hatch day', hatched:'🐣 The hatching has begun!', wlh:'Allowlist Challenge', wlspots:'spots', wl1:'Write a post on X with #TheChosen100 using the button.', wl2:'Submit the link to your post.', wl3:'We hand-pick the 50 most creative posts for the allowlist.', wlnote:'The allowlist goes to the X account that actually wrote the post. No wallet address needed.', wlx:'Post on 𝕏', wlf:'Submit your post link', wlmint:'Egg sale (mint) planned for Dec 18 · may open earlier<br>Hatch (reveal) on Dec 25', tl:['✍️ Allowlist challenge','📣 Winners announced','🥚 Egg sale Dec 18','🐣 Hatch Dec 25'], tlnote:'The sale may open earlier. Exact times will be posted on X.', xtext:'100 eggs. One hatch day. Who is in mine? 🥚', hint:'Tap the egg', prog:n=>`Hatching ${n}% ready`, wh:['…something moved inside','Tap. A tap back from inside.','It feels warm. Just a little.','Still asleep, for now','The crack looks a little bigger','Someone inside is listening'],
-  a1h:'What is this?', a1:'These are the incubator eggs of "The Chosen 100", a limited NFT collection of just 100. They are numbered 1 to 100, but for now every egg is identical. Nobody knows what is inside which egg.',
-  a3h:'What happens at hatching?', a3:'At the set date and time, all 100 eggs hatch at once. Who is inside will only be known then.',
-  grid:'The 100 Eggs', egg:'Chosen Egg', no:'Number', status:'Status', waiting:'Waiting to hatch', hatching:'Hatching', inside:'Inside', unknown:'??? (revealed on hatch day)',
-  story:'It breathes quietly, looking exactly like every other egg. No one knows who will be born from it.',
-  storyH:'A crack has appeared! The one inside this egg will show itself soon.',
-  what:n=>`What is it? — Egg No. ${n} of The Chosen 100 collection.`,
-  prev:'← Prev', next:'Next →', foot:'Official channels: this site and <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> only.<br>We never send mint links by DM and never ask for your seed phrase.<br>© The Chosen 100', alt:n=>`Egg No. ${n}`},
-ja:{name:'日本語', loc:'ja-JP', tz:'(日本・韓国時間)',
-  title:'選ばれし卵', sub:'世界にたった100個だけの孵化器。すべての卵は同じ姿で、同じ日を待っています。<br>その日が来て殻が割れたとき、初めて中に誰がいたのかがわかります。',
-  d:'日',h:'時間',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化が始まりました！', wlh:'ホワイトリスト・チャレンジ', wlspots:'枠', wl1:'ボタンから #TheChosen100 を付けてXに投稿。', wl2:'投稿のリンクを提出。', wl3:'いちばんセンスのある50件を選んでホワイトリストを贈ります。', wlnote:'ホワイトリストは実際に投稿したXアカウントに贈られます。ウォレットアドレスは不要です。', wlx:'𝕏 に投稿する', wlf:'投稿リンクを提出', wlmint:'卵の販売(ミント)は12月18日予定・早まる可能性あり<br>孵化(公開)は12月25日', tl:['✍️ ホワイトリスト・チャレンジ','📣 当選発表','🥚 卵の販売 12/18','🐣 孵化 12/25'], tlnote:'販売日は早まる可能性があります。正確な時間はXでお知らせします。', xtext:'100個の卵、たった一日の孵化。私の卵には誰がいる？ 🥚', hint:'卵をトントンしてみて', prog:n=>`孵化準備 ${n}%`, wh:['…中で何かが動きました','トン。中からもトン。','少しだけ、あたたかい。','まだ眠っています','ひびが少し大きくなったみたい','中で誰かが耳をすませています'],
-  a1h:'これは何？', a1:'100個限定のNFTコレクション「The Chosen 100」の孵化器の卵です。1番から100番まで番号が違うだけで、今はすべての卵が同じ姿。どの卵に何が入っているかは誰にもわかりません。',
-  a3h:'孵化すると？', a3:'決められた日時に、100個の卵が一斉に孵ります。中に誰がいるのかは、そのときまでわかりません。',
-  grid:'100個の卵', egg:'選ばれし卵', no:'番号', status:'状態', waiting:'孵化待ち', hatching:'孵化中', inside:'中にいるもの', unknown:'???（孵化日に公開）',
-  story:'ほかの卵とまったく同じ姿で、静かに息をしています。この卵から誰が生まれるのか、まだ誰も知りません。',
-  storyH:'殻にひびが入りました！もうすぐこの卵の子が姿を現します。',
-  what:n=>`これは何？ — The Chosen 100 コレクションの${n}番目の卵です。`,
-  prev:'← 前へ', next:'次へ →', foot:'公式チャンネルはこのサイトと <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a> だけです。<br>DMでミントリンクを送ることはなく、シードフレーズを聞くことも絶対にありません。<br>© The Chosen 100', alt:n=>`${n}番の卵`},
-zh:{name:'中文', loc:'zh-CN', tz:'(韩国时间)',
-  title:'天选之蛋', sub:'世界上只有100个孵化器。每一颗蛋都长得一模一样，等待着同一天的到来。<br>那一天蛋壳破裂，我们才会知道里面究竟是谁。',
-  d:'天',h:'小时',m:'分',s:'秒', hatchLabel:'孵化日', hatched:'🐣 孵化已经开始！', wlh:'白名单挑战', wlspots:'个名额', wl1:'点击按钮，在X发布带 #TheChosen100 的帖子。', wl2:'提交你的帖子链接。', wl3:'我们亲自挑选最有创意的50条帖子发放白名单。', wlnote:'白名单发给真正发帖的X账号。无需钱包地址。', wlx:'在 𝕏 发帖', wlf:'提交帖子链接', wlmint:'蛋的发售(铸造)预计12月18日 · 可能提前<br>孵化(揭晓)在12月25日', tl:['✍️ 白名单挑战','📣 公布名单','🥚 发售 12/18','🐣 孵化 12/25'], tlnote:'发售日可能提前，具体时间将在X公布。', xtext:'100颗蛋，只有一天孵化。我的蛋里会是谁？🥚', hint:'轻轻敲一敲蛋', prog:n=>`孵化准备 ${n}%`, wh:['…里面有什么动了一下','咚。里面也回了一声咚。','有点暖暖的。','还在睡觉呢','裂缝好像又大了一点','里面有谁在静静聆听'],
-  a1h:'这是什么？', a1:'这是限量100个的NFT收藏系列「The Chosen 100」的孵化蛋。编号从1到100，除了编号以外，现在每颗蛋都完全相同。没有人知道哪颗蛋里藏着什么。',
-  a3h:'孵化后会怎样？', a3:'在设定的日期和时间，100颗蛋会同时孵化。里面是谁，要到那一刻才会知道。',
-  grid:'100颗蛋', egg:'天选之蛋', no:'编号', status:'状态', waiting:'等待孵化', hatching:'孵化中', inside:'里面是', unknown:'???（孵化日揭晓）',
-  story:'它和其他蛋一模一样，正安静地呼吸着。没有人知道会从这颗蛋里诞生什么。',
-  storyH:'蛋壳出现了裂缝！这颗蛋里的孩子很快就要现身了。',
-  what:n=>`这是什么？ — The Chosen 100 收藏系列的第${n}颗蛋。`,
-  prev:'← 上一个', next:'下一个 →', foot:'官方渠道仅限本网站和 <a href="https://x.com/SSGKGK1" target="_blank" rel="noopener noreferrer" style="color:var(--gold2)">X @SSGKGK1</a>。<br>我们绝不会通过私信发送铸造链接，也绝不会索要你的助记词。<br>© The Chosen 100', alt:n=>`${n}号蛋`},
-};
+const I={
+ko:{nm:'한국어',ab:'KO',tab1:'부화장',tab2:'알 100개',tab3:'화이트리스트',eb1:'부화 중 · 12.25 부화',
+ lead:'겉보기엔 똑같은 알 100개. 하지만 그 안에서는 저마다 다른 아이가 자라고 있어요. 2026년 12월 25일 0시(한국시간), 모두 동시에 깨어납니다.',
+ cta1:'알 100개 보기 →',cta2:'화이트리스트 챌린지',hint:'알을 톡톡 두드려 보세요',st1:'모두 같은 모습',st2:'판매 예정 · 더 빨리 열릴 수도 있어요',st3:'부화 진행률',
+ eb2:'컬렉션',eggsP:'지금은 모두 같은 모습이에요. 어떤 알에서 누가 나올지는 12월 25일에 알 수 있어요.',
+ eb3:'화이트리스트 챌린지',wlP:'센스 있는 글 하나로 화이트리스트를 받아 가세요.',spots:'화이트리스트 자리',
+ wlBody:'X에 <span class="tag">#TheChosen100</span> 으로 글을 올리고 링크를 제출해 주세요. 가장 재치 있는 글 50개를 직접 골라, 실제로 글을 쓴 X 계정에 화이트리스트를 드려요.',
+ wlx:'𝕏 에 글쓰기',wlf:'링크 제출하기',s1b:'X에 글 올리기',s1p:'#TheChosen100 해시태그와 함께 나만의 글을 써 주세요.',s2b:'링크 제출하기',s2p:'게시물 링크만 내면 돼요. 지갑 주소는 필요 없어요.',s3b:'50명 선정',s3p:'하나씩 직접 읽고 골라서 발표해요.',
+ r1:'X 챌린지',r2:'당첨 발표',r3:'알 판매',r4:'부화',safe:'DM으로 민팅 링크를 보내지 않아요 · 시드 문구는 절대 묻지 않아요',foot:'공식 채널: 이 사이트와 𝕏 @SSGKGK1',
+ cd:['일','시간','분','초'],wh:['…톡','안에서 뭔가 움직였어요','따뜻해요. 아주 조금.','아직 잠들어 있어요','금이 살짝 커진 것 같아요'],toast:n=>`알 #${n} · 12월 25일에 깨어나요`,
+ x:'100개의 알, 단 하루의 부화. 내 알에는 누가 있을까? 🥚',ttl:'선택받은 알',hatched:'🐣 부화가 시작됐어요!'},
+en:{nm:'English',ab:'EN',tab1:'Hatchery',tab2:'100 Eggs',tab3:'Allowlist',eb1:'Incubating · Hatch 12.25',
+ lead:'100 eggs that look exactly the same — yet inside each one, someone different is growing. On December 25, 2026 at 00:00 KST, they all hatch at once.',
+ cta1:'See the 100 eggs →',cta2:'Allowlist challenge',hint:'Tap the egg',st1:'All identical',st2:'Sale planned · may open earlier',st3:'Hatching',
+ eb2:'Collection',eggsP:'For now, every egg looks the same. Who comes out of which egg will be known on December 25.',
+ eb3:'Allowlist Challenge',wlP:'One clever post can earn you a spot.',spots:'allowlist spots',
+ wlBody:'Post on X with <span class="tag">#TheChosen100</span> and submit your link. We hand-pick the 50 most creative posts, and the spot goes to the X account that actually wrote it.',
+ wlx:'Post on 𝕏',wlf:'Submit your link',s1b:'Post on X',s1p:'Write your own post with the #TheChosen100 hashtag.',s2b:'Submit the link',s2p:'Just the post link. No wallet address needed.',s3b:'50 chosen',s3p:'We read every post ourselves and announce the picks.',
+ r1:'X challenge',r2:'Winners',r3:'Egg sale',r4:'Hatch',safe:'We never send mint links by DM · we never ask for your seed phrase',foot:'Official: this site and 𝕏 @SSGKGK1',
+ cd:['DAYS','HOURS','MIN','SEC'],wh:['…tap','Something moved inside','Warm. Just a little.','Still asleep','The crack got a bit bigger'],toast:n=>`Egg #${n} · hatches on Dec 25`,
+ x:'100 eggs. One hatch day. Who is in mine? 🥚',ttl:'The Chosen Eggs',hatched:'🐣 The hatching has begun!'},
+ja:{nm:'日本語',ab:'JA',tab1:'孵化場',tab2:'100個の卵',tab3:'ホワイトリスト',eb1:'孵化中 · 12.25 孵化',
+ lead:'見た目はまったく同じ100個の卵。でもその中では、それぞれ違う子が育っています。2026年12月25日0時(韓国時間)、すべてが一斉に孵ります。',
+ cta1:'100個の卵を見る →',cta2:'ホワイトリスト・チャレンジ',hint:'卵をトントンしてみて',st1:'すべて同じ姿',st2:'販売予定 · 早まる可能性あり',st3:'孵化の進み具合',
+ eb2:'コレクション',eggsP:'今はすべて同じ姿です。どの卵から誰が生まれるかは12月25日にわかります。',
+ eb3:'ホワイトリスト・チャレンジ',wlP:'センスのある投稿ひとつで、ホワイトリストを手に入れよう。',spots:'ホワイトリスト枠',
+ wlBody:'<span class="tag">#TheChosen100</span> を付けてXに投稿し、リンクを提出してください。いちばん面白い50件を選び、実際に投稿したXアカウントにホワイトリストを贈ります。',
+ wlx:'𝕏 に投稿する',wlf:'リンクを提出',s1b:'Xに投稿',s1p:'#TheChosen100 を付けて、あなたらしい投稿を。',s2b:'リンクを提出',s2p:'投稿リンクだけでOK。ウォレットアドレスは不要です。',s3b:'50名を選出',s3p:'一つずつ読んで選び、発表します。',
+ r1:'Xチャレンジ',r2:'当選発表',r3:'卵の販売',r4:'孵化',safe:'DMでミントリンクを送ることはありません · シードフレーズは絶対に聞きません',foot:'公式: このサイトと 𝕏 @SSGKGK1',
+ cd:['日','時間','分','秒'],wh:['…トン','中で何かが動いた','少しだけ、あたたかい','まだ眠っています','ひびが少し大きくなった'],toast:n=>`卵 #${n} · 12月25日に孵ります`,
+ x:'100個の卵、たった一日の孵化。私の卵には誰がいる？ 🥚',ttl:'選ばれし卵',hatched:'🐣 孵化が始まりました！'},
+zh:{nm:'中文',ab:'ZH',tab1:'孵化场',tab2:'100颗蛋',tab3:'白名单',eb1:'孵化中 · 12.25 孵化',
+ lead:'100颗看起来一模一样的蛋，里面却各自孕育着不同的小家伙。2026年12月25日0点(韩国时间)，它们将同时破壳。',
+ cta1:'查看100颗蛋 →',cta2:'白名单挑战',hint:'轻轻敲一敲蛋',st1:'全部一模一样',st2:'预计发售 · 可能提前',st3:'孵化进度',
+ eb2:'收藏系列',eggsP:'现在每颗蛋都一样。哪颗蛋里会出来谁，要到12月25日才知道。',
+ eb3:'白名单挑战',wlP:'一条有创意的帖子，就能赢得白名单。',spots:'个白名单名额',
+ wlBody:'在X发布带 <span class="tag">#TheChosen100</span> 的帖子并提交链接。我们会亲自挑选最有创意的50条，把白名单发给真正发帖的X账号。',
+ wlx:'在 𝕏 发帖',wlf:'提交链接',s1b:'在X发帖',s1p:'带上 #TheChosen100，写出你自己的帖子。',s2b:'提交链接',s2p:'只需帖子链接，无需钱包地址。',s3b:'选出50位',s3p:'逐条亲自阅读后挑选并公布。',
+ r1:'X挑战',r2:'公布名单',r3:'发售',r4:'孵化',safe:'绝不会通过私信发送铸造链接 · 绝不索要助记词',foot:'官方渠道: 本网站和 𝕏 @SSGKGK1',
+ cd:['天','小时','分','秒'],wh:['…咚','里面有什么动了一下','有点暖暖的','还在睡觉呢','裂缝好像大了一点'],toast:n=>`蛋 #${n} · 12月25日孵化`,
+ x:'100颗蛋，只有一天孵化。我的蛋里会是谁？🥚',ttl:'天选之蛋',hatched:'🐣 孵化已经开始！'}};
 const ORDER=['en','ko','ja','zh'];
-
-// 언어 정하기: ?lang= → 저장된 값 → 브라우저 언어
-function pickLang(){
-  const q=new URLSearchParams(location.search).get('lang'); if(T[q])return q;
-  try{const s=localStorage.getItem('c100lang'); if(T[s])return s}catch(e){}
-  const n=(navigator.language||'en').slice(0,2); return T[n]?n:'en';
-}
+function pickLang(){const q=new URLSearchParams(location.search).get('lang');if(I[q])return q;
+  try{const s=localStorage.getItem('c100lang');if(I[s])return s}catch(e){}
+  const n=(navigator.language||'en').slice(0,2);return I[n]?n:'en'}
 let L=pickLang();
-const pad=n=>String(n).padStart(3,'0');
-const isHatched=()=>Date.now()>=HATCH_AT;
-const fmtDate=()=>HATCH_AT.toLocaleString(T[L].loc,{timeZone:'Asia/Seoul',dateStyle:'long',timeStyle:'short'});
-
-const langs=document.getElementById('langs');
-ORDER.forEach(k=>{const b=document.createElement('button');b.textContent=T[k].name;b.dataset.k=k;
-  b.onclick=()=>setLang(k);langs.appendChild(b)});
-
-function setLang(k){
-  L=k; const t=T[k];
-  try{localStorage.setItem('c100lang',k)}catch(e){}
-  const u=new URL(location.href); u.searchParams.set('lang',k); history.replaceState(null,'',u);
-  document.documentElement.lang=k;
-  document.title=t.title+' · The Chosen 100';
-  langs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
-  document.querySelectorAll('[data-t]').forEach(el=>el.innerHTML=t[el.dataset.t]);
-  updateDate(); render(); if(dlg.open) open(cur); if(typeof growEgg==='function') growEgg(); if(typeof setXLink==='function') setXLink(); if(typeof paintTL==='function') paintTL();
-}
-
-const grid=document.getElementById('grid');
-function render(){
-  const t=T[L], h=isHatched(); grid.innerHTML='';
-  for(let n=1;n<=100;n++){
-    const b=document.createElement('button'); b.className='egg'+(h?' hatched':'');
-    b.innerHTML=`<img src="${EGG_IMG}" alt="${t.alt(n)}" loading="lazy" style="animation-delay:${-(n%9)*.35}s"><div class="no">#${pad(n)}</div>`;
-    b.onclick=()=>open(n); grid.appendChild(b);
-  }
-}
-
-const dlg=document.getElementById('dlg'), dc=document.getElementById('dc'); let cur=1;
-function open(n){
-  cur=n; const t=T[L], h=isHatched();
-  dc.innerHTML=`<div class="pic"><img src="${EGG_IMG}" alt="${t.alt(n)}"></div>
-  <div class="info">
-    <div class="kicker">NO. ${pad(n)} / 100</div>
-    <h2>${t.egg} #${pad(n)}</h2>
-    <p class="story">${h?t.storyH:t.story}</p>
-    <dl>
-      <dt>${t.no}</dt><dd>${n} / 100</dd>
-      <dt>${t.status}</dt><dd>${h?t.hatching:t.waiting}</dd>
-      <dt>${t.inside}</dt><dd>${t.unknown}</dd>
-      <dt>${t.hatchLabel}</dt><dd>${fmtDate()} ${t.tz}</dd>
-    </dl>
-    <div class="art">${t.what(n)}</div>
-    <div class="navs"><button id="pv">${t.prev}</button><button id="nx">${t.next}</button></div>
-  </div>`;
-  dc.querySelector('#pv').onclick=()=>open(cur===1?100:cur-1);
-  dc.querySelector('#nx').onclick=()=>open(cur===100?1:cur+1);
-  if(!dlg.open) dlg.showModal();
-  history.replaceState(null,'',location.search+'#'+n);
-}
-document.getElementById('x').onclick=()=>dlg.close();
-dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
-dlg.addEventListener('close',()=>history.replaceState(null,'',location.pathname+location.search));
-document.addEventListener('keydown',e=>{if(!dlg.open)return;
-  if(e.key==='ArrowRight')open(cur===100?1:cur+1); if(e.key==='ArrowLeft')open(cur===1?100:cur-1)});
-
-// 카운트다운
-const two=n=>String(n).padStart(2,'0'); const hd=document.getElementById('hd');
-let wasHatched=isHatched();
-function updateDate(){ if(isHatched()){hd.textContent=T[L].hatched;hd.classList.add('done')}
-  else hd.textContent=`${T[L].hatchLabel} · ${fmtDate()} ${T[L].tz}`; }
-function tick(){
-  const left=Math.max(0,HATCH_AT-Date.now()), s=Math.floor(left/1000);
-  dd.textContent=Math.floor(s/86400); hh.textContent=two(Math.floor(s%86400/3600));
-  mm.textContent=two(Math.floor(s%3600/60)); ss.textContent=two(s%60);
-  if(!left&&!wasHatched){wasHatched=true;updateDate();render()}
-}
-
-// 살아 있는 알: 부화일이 다가올수록 금과 빛이 커져요
-
-function setXLink(){const u='https://x.com/intent/post?text='+encodeURIComponent(T[L].xtext)+'&hashtags=TheChosen100&url='+encodeURIComponent('https://ssgkgk1-sketch.github.io/the-chosen-100/');
-  const a=document.getElementById('xPost'); if(a) a.href=u;}
-
-function paintTL(){const el=document.getElementById('tl'); if(!el) return;
-  el.innerHTML=T[L].tl.map((x,i)=>`<span class="${i===0?'now':i===3?'hatch':''}">${x}</span>`).join('<i>→</i>');}
-const START_AT=new Date('2026-11-02T00:00:00+09:00');
-const heroEgg=document.getElementById('heroEgg'), cracks=[...document.querySelectorAll('#cracks .crack')];
-const clamp=v=>Math.max(0,Math.min(1,v));
-function growEgg(){
-  const p=clamp((Date.now()-START_AT)/(HATCH_AT-START_AT));
-  cracks.forEach((g,i)=>{const f=i===0?Math.max(.18,clamp(p/.3)):clamp((p-i*.22)/.3);
-    g.style.display=f?'':'none'; g.querySelectorAll('path').forEach(el=>{el.style.strokeDasharray=1;el.style.strokeDashoffset=1-f});
-    g.style.setProperty('--cg',(.3+.7*p).toFixed(2))});
-  heroEgg.style.setProperty('--ga',(.25+.5*p).toFixed(2)); heroEgg.style.setProperty('--gl',(30+40*p)+'px');
-  const n=Math.floor(p*100); pbar.style.width=Math.max(1,n)+'%'; ptxt.textContent=T[L].prog(n);
-}
-let wi=0, wt;
-heroEgg.addEventListener('click',()=>{
-  heroEgg.classList.remove('knock'); void heroEgg.offsetWidth; heroEgg.classList.add('knock');
-  if(!matchMedia('(prefers-reduced-motion:reduce)').matches) for(let k=0;k<7;k++){const sp=document.createElement('span');sp.className='spark';
-    const a=Math.random()*Math.PI*2, r=50+Math.random()*50; sp.style.setProperty('--dx',Math.cos(a)*r+'px'); sp.style.setProperty('--dy',Math.sin(a)*r-20+'px');
-    heroEgg.appendChild(sp); setTimeout(()=>sp.remove(),900)}
-  const w=document.getElementById('whisper'); w.textContent=T[L].wh[wi++%T[L].wh.length]; w.classList.add('on');
-  clearTimeout(wt); wt=setTimeout(()=>w.classList.remove('on'),2600);
+const langEl=document.getElementById('lang'),langMenu=document.getElementById('langMenu'),langBtn=document.getElementById('langBtn');
+ORDER.forEach(k=>{const b=document.createElement('button');b.textContent=I[k].nm;b.dataset.k=k;b.onclick=()=>{setLang(k);langEl.classList.remove('open');langBtn.setAttribute('aria-expanded','false')};langMenu.appendChild(b)});
+langBtn.onclick=e=>{e.stopPropagation();const o=langEl.classList.toggle('open');langBtn.setAttribute('aria-expanded',o)};
+document.addEventListener('click',()=>langEl.classList.remove('open'));
+function setLang(k){L=k;const t=I[k];try{localStorage.setItem('c100lang',k)}catch(e){}
+  const u=new URL(location.href);u.searchParams.set('lang',k);history.replaceState(null,'',u);
+  document.documentElement.lang=k;document.title=t.ttl+' · The Chosen 100';document.getElementById('langName').textContent=t.ab;
+  langMenu.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+  document.querySelectorAll('[data-i]').forEach(el=>el.innerHTML=t[el.dataset.i]);
+  document.getElementById('xBtn').href='https://x.com/intent/post?text='+encodeURIComponent(t.x+'\n\n#TheChosen100\nhttps://ssgkgk1-sketch.github.io/the-chosen-100/');
+  tick();document.fonts.ready.then(()=>{const a=tabs.find(b=>b.getAttribute('aria-selected')==='true');if(a)movePill(a)})}
+const HATCH_AT=new Date('2026-12-25T00:00:00+09:00'),START_AT=new Date('2026-11-02T00:00:00+09:00');
+/* tabs */
+const tabs=[...document.querySelectorAll('#tabs button')],pill=document.getElementById('pill');
+function movePill(b){pill.style.width=b.offsetWidth+'px';pill.style.transform=`translateX(${b.offsetLeft-5}px)`}
+function show(t,push){tabs.forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+t));
+  movePill(tabs.find(b=>b.dataset.t===t));if(push)history.replaceState(null,'','#'+t);scrollTo({top:0,behavior:'smooth'})}
+tabs.forEach((b,i)=>{b.onclick=()=>show(b.dataset.t,1);b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:2))%3];n.focus();show(n.dataset.t,1)}}});
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go,1));
+addEventListener('resize',()=>movePill(tabs.find(b=>b.getAttribute('aria-selected')==='true')));
+const h0=location.hash.slice(1),n0=parseInt(h0);
+document.fonts.ready.then(()=>{if(n0>=1&&n0<=100){show('eggs');const tl=document.querySelectorAll('.tile')[n0-1];if(tl){tl.classList.add('hl');setTimeout(()=>tl.scrollIntoView({block:'center'}),300)}}else show(['hatch','eggs','wl'].includes(h0)?h0:'hatch')});
+/* countdown */
+function tick(){const s=Math.max(0,Math.floor((HATCH_AT-Date.now())/1000));
+  document.getElementById('cd').innerHTML=s<=0?`<div style="width:auto;padding:14px 22px"><b style="font-size:24px">${I[L].hatched}</b></div>`:[s/86400,s/3600%24,s/60%60,s%60].map((n,j)=>[n,I[L].cd[j]]).map(([n,l])=>`<div><b>${String(Math.floor(n)).padStart(2,'0')}</b><small>${l}</small></div>`).join('');
+  const p=Math.min(1,Math.max(0,(Date.now()-START_AT)/(HATCH_AT-START_AT)));document.getElementById('bar').style.width=(p*100).toFixed(1)+'%';document.getElementById('pct').textContent=(p*100).toFixed(0)+'%'}
+setInterval(tick,1000);
+/* living egg */
+const stage=document.getElementById('stage'),egg=document.getElementById('egg'),cr=[...egg.querySelectorAll('path')],wh=document.getElementById('whisper');
+let k=0;
+stage.addEventListener('mousemove',e=>{const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;egg.style.transform=`rotateY(${x*18}deg) rotateX(${-y*14}deg)`});
+stage.addEventListener('mouseleave',()=>egg.style.transform='');
+stage.addEventListener('click',()=>{egg.classList.remove('knock');void egg.offsetWidth;egg.classList.add('knock');
+  k++;crackSound();sparks();if(navigator.vibrate)try{navigator.vibrate(12)}catch(e){}wh.textContent=I[L].wh[k%I[L].wh.length];wh.classList.add('show');clearTimeout(wh.t);wh.t=setTimeout(()=>wh.classList.remove('show'),1400);
 });
 
-// 두드리는 소리: 파일 없이 브라우저에서 합성
-let AC=null, soundOn=true;
-try{soundOn=localStorage.getItem('c100sound')!=='off'}catch(e){}
+function growEgg(){const p=Math.min(1,Math.max(0,(Date.now()-START_AT)/(HATCH_AT-START_AT)));
+  cr.forEach((c,i)=>{const f=i===0?Math.max(.25,Math.min(1,p/.3)):Math.min(1,Math.max(0,(p-i*.3)/.3));c.style.strokeDashoffset=1-f})}
+growEgg();setInterval(growEgg,60000);
+function sparks(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  for(let j=0;j<7;j++){const sp=document.createElement('span');sp.className='spark';const a=Math.random()*Math.PI*2,r=60+Math.random()*60;
+    sp.style.setProperty('--dx',Math.cos(a)*r+'px');sp.style.setProperty('--dy',Math.sin(a)*r-20+'px');stage.appendChild(sp);setTimeout(()=>sp.remove(),900)}}
+let AC=null,soundOn=true;try{soundOn=localStorage.getItem('c100sound')!=='off'}catch(e){}
 const sndBtn=document.getElementById('snd');
-function paintSnd(){sndBtn.textContent=soundOn?'🔊':'🔇'; sndBtn.setAttribute('aria-label',soundOn?'Sound on':'Sound off')}
-sndBtn.addEventListener('click',()=>{soundOn=!soundOn; try{localStorage.setItem('c100sound',soundOn?'on':'off')}catch(e){} paintSnd()});
-paintSnd();
-function crackSound(){
-  if(!soundOn) return;
-  try{
-    AC=AC||new (window.AudioContext||window.webkitAudioContext)(); if(AC.state==='suspended') AC.resume();
-    const t=AC.currentTime, out=AC.createGain(); out.gain.value=.55; out.connect(AC.destination);
-    // 톡: 짧고 낮은 두드림
-    const o=AC.createOscillator(), g=AC.createGain(); o.type='sine';
-    o.frequency.setValueAtTime(240+Math.random()*40,t); o.frequency.exponentialRampToValueAtTime(95,t+.08);
-    g.gain.setValueAtTime(.5,t); g.gain.exponentialRampToValueAtTime(.001,t+.13); o.connect(g).connect(out); o.start(t); o.stop(t+.14);
-    // 쩍: 껍데기 갈라지는 잡음 2~3번
-    const n=2+Math.floor(Math.random()*2);
-    for(let i=0;i<n;i++){
-      const len=Math.floor(AC.sampleRate*.045), buf=AC.createBuffer(1,len,AC.sampleRate), d=buf.getChannelData(0);
-      for(let k=0;k<len;k++) d[k]=(Math.random()*2-1)*Math.pow(1-k/len,3);
-      const src=AC.createBufferSource(); src.buffer=buf;
-      const bp=AC.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2200+Math.random()*2600; bp.Q.value=1.2;
-      const ng=AC.createGain(); ng.gain.value=.9-i*.25;
-      src.connect(bp).connect(ng).connect(out); src.start(t+.025+i*(.02+Math.random()*.03));
-    }
-  }catch(e){}
-}
-// 두드릴 때마다 껍데기에 작은 금 + 조각
-const SPOTS=[[80,170],[70,240],[95,300],[400,170],[410,240],[385,300],[200,28],[270,24],[170,350],[300,352],[235,365]];
-const tapLayer=document.getElementById('tapCracks'), NS='http://www.w3.org/2000/svg';
-function tapCrack(){
-  const [x0,y0]=SPOTS[Math.floor(Math.random()*SPOTS.length)];
-  let x=x0,y=y0,dir=Math.random()<.5?-1:1, d=`M${x} ${y}`;
-  const segs=3+Math.floor(Math.random()*2);
-  for(let i=0;i<segs;i++){ x+=dir*(9+Math.random()*12); y+=12+Math.random()*12; dir*=-1; d+=` L${x.toFixed(0)} ${y.toFixed(0)}`; }
-  const g=document.createElementNS(NS,'g'); g.setAttribute('class','tapc');
-  ['gl','ln'].forEach(c=>{const pth=document.createElementNS(NS,'path'); pth.setAttribute('class',c); pth.setAttribute('d',d);
-    pth.setAttribute('pathLength','1'); pth.style.strokeDasharray=1; pth.style.strokeDashoffset=1; g.appendChild(pth)});
-  tapLayer.appendChild(g);
-  requestAnimationFrame(()=>requestAnimationFrame(()=>g.querySelectorAll('path').forEach(pth=>pth.style.strokeDashoffset=0)));
-  while(tapLayer.children.length>6) tapLayer.firstChild.remove();
-  setTimeout(()=>g.classList.add('fade'),2200); setTimeout(()=>g.remove(),3200);
-  // 조각
-  const box=heroEgg.querySelector('.shake');
-  for(let k=0;k<4+Math.floor(Math.random()*3);k++){
-    const c=document.createElement('span'); c.className='chip';
-    c.style.left=(x0/479*100)+'%'; c.style.top=(y0/640*100)+'%';
-    c.style.setProperty('--dx',(Math.random()*60-30)+'px'); c.style.setProperty('--dy',(40+Math.random()*60)+'px');
-    c.style.setProperty('--r',(Math.random()*540-270)+'deg'); c.style.animationDelay=(Math.random()*.08)+'s';
-    box.appendChild(c); setTimeout(()=>c.remove(),1100);
-  }
-}
-heroEgg.addEventListener('click',()=>{crackSound(); tapCrack(); if(navigator.vibrate) try{navigator.vibrate(12)}catch(e){}});
-heroEgg.setAttribute('aria-label','The Chosen 100 egg');
-growEgg(); setInterval(growEgg,60000); setXLink();
-setLang(L); tick(); setInterval(tick,1000);
-const h0=parseInt(location.hash.slice(1)); if(h0>=1&&h0<=100) open(h0);
-
-// 별 배경
-const c=document.getElementById('stars'), x=c.getContext('2d'); let st=[];
-function size(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;
-  st=Array.from({length:140},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+.3,p:Math.random()*6}))}
-size(); addEventListener('resize',size);
-const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
-(function draw(t){x.clearRect(0,0,c.width,c.height);
-  for(const s of st){x.globalAlpha=.35+.65*Math.abs(Math.sin(s.p+(still?0:t/1400)));x.fillStyle='#fff';
-    x.beginPath();x.arc(s.x,s.y,s.r*devicePixelRatio,0,7);x.fill()}
-  if(!still)requestAnimationFrame(draw)})(0);
+function paintSnd(){sndBtn.textContent=soundOn?'🔊':'🔇';sndBtn.setAttribute('aria-label',soundOn?'Sound on':'Sound off')}
+sndBtn.addEventListener('click',e=>{e.stopPropagation();soundOn=!soundOn;try{localStorage.setItem('c100sound',soundOn?'on':'off')}catch(e){}paintSnd()});paintSnd();
+function crackSound(){if(!soundOn)return;try{
+  AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+  const t=AC.currentTime,out=AC.createGain();out.gain.value=.55;out.connect(AC.destination);
+  const o=AC.createOscillator(),g=AC.createGain();o.type='sine';
+  o.frequency.setValueAtTime(240+Math.random()*40,t);o.frequency.exponentialRampToValueAtTime(95,t+.08);
+  g.gain.setValueAtTime(.5,t);g.gain.exponentialRampToValueAtTime(.001,t+.13);o.connect(g).connect(out);o.start(t);o.stop(t+.14);
+  const n=2+Math.floor(Math.random()*2);
+  for(let i=0;i<n;i++){const len=Math.floor(AC.sampleRate*.045),buf=AC.createBuffer(1,len,AC.sampleRate),d=buf.getChannelData(0);
+    for(let q=0;q<len;q++)d[q]=(Math.random()*2-1)*Math.pow(1-q/len,3);
+    const src=AC.createBufferSource();src.buffer=buf;const bp=AC.createBiquadFilter();bp.type='bandpass';bp.frequency.value=2200+Math.random()*2600;bp.Q.value=1.2;
+    const ng=AC.createGain();ng.gain.value=.9-i*.25;src.connect(bp).connect(ng).connect(out);src.start(t+.025+i*(.02+Math.random()*.03))}
+}catch(e){}}
+/* grid */
+const g=document.getElementById('grid'),toast=document.getElementById('toast');
+for(let i=1;i<=100;i++){const b=document.createElement('button');b.className='tile';b.style.setProperty('--i',i);
+  b.innerHTML=`<span>#${String(i).padStart(3,'0')}</span><img src="art/egg_v1_cut.png?v=2" alt="" loading="lazy">`;
+  b.onclick=()=>{b.querySelector('img').animate([{transform:'rotate(0)'},{transform:'rotate(-10deg)'},{transform:'rotate(8deg)'},{transform:'rotate(0)'}],{duration:450});
+    toast.textContent=I[L].toast(String(i).padStart(3,'0'));toast.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>toast.classList.remove('show'),1600)};g.appendChild(b)}
+/* stars */
+const cv=document.getElementById('stars'),cx=cv.getContext('2d');let S=[];
+function rs(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio;S=Array.from({length:140},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.3+.2,p:Math.random()*6}))}
+rs();addEventListener('resize',rs);
+(function dr(t){cx.clearRect(0,0,cv.width,cv.height);for(const s of S){const a=.35+.65*Math.abs(Math.sin(t/1400+s.p));cx.globalAlpha=a;cx.fillStyle='#fff';cx.beginPath();cx.arc(s.x*cv.width,s.y*cv.height,s.r*devicePixelRatio,0,7);cx.fill()}requestAnimationFrame(dr)})(0);
+setLang(L);
 </script>
 </body>
 </html>
