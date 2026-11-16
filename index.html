@@ -110,6 +110,12 @@ h1,h2{font-family:'Fraunces';font-weight:700;letter-spacing:-.5px}
 .stat small{color:var(--mute);font-size:12.5px;letter-spacing:1.5px}
 .stat b{display:block;font-family:'Fraunces';font-size:30px;margin-top:4px}
 .stat span{font-size:13px;color:var(--mute)}
+.sale{margin-top:14px;padding:20px 22px;border-radius:20px;background:var(--glass);border:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center}
+.sale h3{margin:0;font-family:'Fraunces';font-size:20px;white-space:nowrap}
+.sale ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sale li{font-size:13px;color:var(--mute);line-height:1.5}.sale li b{display:block;color:inherit;font-size:14px}
+.sale small{grid-column:1/-1;color:var(--mute);font-size:12px}
+@media (max-width:860px){.sale{grid-template-columns:1fr}.sale ol{grid-template-columns:1fr}}
 .prog{margin-top:14px;height:8px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
 .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:9px;box-shadow:0 0 14px var(--gold)}
 /* tab 2 */
@@ -203,6 +209,12 @@ footer{position:relative;z-index:2;text-align:center;padding:22px;font-size:12.5
       <div class="stat"><small>SALE</small><b>12.18</b><span data-i="st2"></span></div>
       <div class="stat"><small>HATCH</small><b>12.25</b><span><span data-i="st3"></span> <b id="pct" style="display:inline;font-size:13px;font-family:inherit">0%</b></span><div class="prog"><i id="bar"></i></div></div>
     </div>
+    <div class="sale">
+      <h3 data-i="saleH"></h3>
+      <ol><li><b data-i="sale1b"></b><span data-i="sale1"></span></li><li><b data-i="sale2b"></b><span data-i="sale2"></span></li><li><b data-i="sale3b"></b><span data-i="sale3"></span></li></ol>
+      <a class="btn pri" href="https://fungolabs.org/launchpad/d/tk5n3r5q" target="_blank" rel="noopener noreferrer" data-i="saleBtn"></a>
+      <small data-i="saleNote"></small>
+    </div>
   </section>
 
   <!-- TAB 2 -->
@@ -225,7 +237,7 @@ footer{position:relative;z-index:2;text-align:center;padding:22px;font-size:12.5
         <div class="num grad">50</div>
         <div style="font-weight:700;font-size:18px;margin-top:6px" data-i="spots"></div>
         <p data-i="wlBody"></p>
-        <div class="ctas"><a class="btn pri" id="xBtn" href="#" target="_blank" rel="noopener noreferrer" data-i="wlx"></a><a class="btn sec" href="https://docs.google.com/forms/d/e/1FAIpQLSeAnWlCZj3gvX93WeTvpqy2Q96i4ISJsMtgeYEx2Se47jFpTA/viewform" target="_blank" rel="noopener noreferrer" data-i="wlf"></a></div>
+        <div class="ctas"><a class="btn pri" id="xBtn" href="#" target="_blank" rel="noopener noreferrer" data-i="wlx"></a><a class="btn sec" href="https://docs.google.com/forms/d/e/1FAIpQLSeAnWlCZj3gvX93WeTvpqy2Q96i4ISJsMtgeYEx2Se47jFpTA/viewform" target="_blank" rel="noopener noreferrer" data-i="wlf"></a><a class="btn sec" href="https://fungolabs.org/launchpad/d/tk5n3r5q" target="_blank" rel="noopener noreferrer" data-i="saleBtn"></a></div>
       </div>
       <div>
         <div class="steps">
@@ -251,7 +263,7 @@ footer{position:relative;z-index:2;text-align:center;padding:22px;font-size:12.5
 const I={
 ko:{nm:'한국어',ab:'KO',tab1:'부화장',tab2:'알 100개',tab3:'화이트리스트',eb1:'부화 중 · 12.25 부화',
  lead:'겉보기엔 똑같은 알 100개. 하지만 그 안에서는 저마다 다른 아이가 자라고 있어요. 2026년 12월 25일 0시(한국시간), 모두 동시에 깨어납니다.',
- cta1:'알 100개 보기 →',cta2:'화이트리스트 챌린지',hint:'알을 톡톡 두드려 보세요',st1:'모두 같은 모습',st2:'판매 예정 · 더 빨리 열릴 수도 있어요',st3:'부화 진행률',
+ cta1:'알 100개 보기 →',cta2:'화이트리스트 챌린지',saleH:'판매 일정 (한국 시간)',sale1b:'12.18 20:00',sale1:'Genesis 보유자 3개 · 무료 추첨',sale2b:'12.18 21:00 ~ 12.19 21:00',sale2:'화이트리스트 50개 · 0.005 ETH · 1개씩',sale3b:'12.19 21:00 ~ 12.20 21:00',sale3:'공개 판매 · 0.01 ETH · 지갑당 1개',saleBtn:'FungoLabs 판매 페이지 →',saleNote:'공식 판매처는 FungoLabs 한 곳뿐이에요. DM으로 오는 민팅 링크는 모두 사기예요.',hint:'알을 톡톡 두드려 보세요',st1:'모두 같은 모습',st2:'판매 12.18 20:00 · FungoLabs',st3:'부화 진행률',
  eb2:'컬렉션',eggsP:'지금은 모두 같은 모습이에요. 어떤 알에서 누가 나올지는 12월 25일에 알 수 있어요.',
  eb3:'화이트리스트 챌린지',wlP:'센스 있는 글 하나로 화이트리스트를 받아 가세요.',spots:'화이트리스트 자리',
  wlBody:'X에 <span class="tag">#TheChosen100</span> 으로 글을 올리고 링크를 제출해 주세요. 가장 재치 있는 글 50개를 직접 골라, 실제로 글을 쓴 X 계정에 화이트리스트를 드려요.',
@@ -261,7 +273,7 @@ ko:{nm:'한국어',ab:'KO',tab1:'부화장',tab2:'알 100개',tab3:'화이트리
  x:'100개의 알, 단 하루의 부화. 내 알에는 누가 있을까? 🥚',ttl:'선택받은 알',hatched:'🐣 부화가 시작됐어요!'},
 en:{nm:'English',ab:'EN',tab1:'Hatchery',tab2:'100 Eggs',tab3:'Allowlist',eb1:'Incubating · Hatch 12.25',
  lead:'100 eggs that look exactly the same — yet inside each one, someone different is growing. On December 25, 2026 at 00:00 KST, they all hatch at once.',
- cta1:'See the 100 eggs →',cta2:'Allowlist challenge',hint:'Tap the egg',st1:'All identical',st2:'Sale planned · may open earlier',st3:'Hatching',
+ cta1:'See the 100 eggs →',cta2:'Allowlist challenge',saleH:'Sale schedule (KST)',sale1b:'12.18 20:00',sale1:'Genesis holders · 3 free, drawn at random',sale2b:'12.18 21:00 – 12.19 21:00',sale2:'Allowlist · 50 eggs · 0.005 ETH · 1 each',sale3b:'12.19 21:00 – 12.20 21:00',sale3:'Public sale · 0.01 ETH · 1 per wallet',saleBtn:'Sale page on FungoLabs →',saleNote:'FungoLabs is the only official sale. Any mint link sent by DM is a scam.',hint:'Tap the egg',st1:'All identical',st2:'Sale 12.18 20:00 KST · FungoLabs',st3:'Hatching',
  eb2:'Collection',eggsP:'For now, every egg looks the same. Who comes out of which egg will be known on December 25.',
  eb3:'Allowlist Challenge',wlP:'One clever post can earn you a spot.',spots:'allowlist spots',
  wlBody:'Post on X with <span class="tag">#TheChosen100</span> and submit your link. We hand-pick the 50 most creative posts, and the spot goes to the X account that actually wrote it.',
@@ -271,7 +283,7 @@ en:{nm:'English',ab:'EN',tab1:'Hatchery',tab2:'100 Eggs',tab3:'Allowlist',eb1:'I
  x:'100 eggs. One hatch day. Who is in mine? 🥚',ttl:'The Chosen Eggs',hatched:'🐣 The hatching has begun!'},
 ja:{nm:'日本語',ab:'JA',tab1:'孵化場',tab2:'100個の卵',tab3:'ホワイトリスト',eb1:'孵化中 · 12.25 孵化',
  lead:'見た目はまったく同じ100個の卵。でもその中では、それぞれ違う子が育っています。2026年12月25日0時(韓国時間)、すべてが一斉に孵ります。',
- cta1:'100個の卵を見る →',cta2:'ホワイトリスト・チャレンジ',hint:'卵をトントンしてみて',st1:'すべて同じ姿',st2:'販売予定 · 早まる可能性あり',st3:'孵化の進み具合',
+ cta1:'100個の卵を見る →',cta2:'ホワイトリスト・チャレンジ',saleH:'販売スケジュール（日本時間と同じ KST）',sale1b:'12.18 20:00',sale1:'Genesisホルダー · 3個無料・抽選',sale2b:'12.18 21:00 〜 12.19 21:00',sale2:'ホワイトリスト · 50個 · 0.005 ETH · 1人1個',sale3b:'12.19 21:00 〜 12.20 21:00',sale3:'一般販売 · 0.01 ETH · 1ウォレット1個',saleBtn:'FungoLabsの販売ページ →',saleNote:'公式の販売先はFungoLabsだけです。DMで届くミントリンクはすべて詐欺です。',hint:'卵をトントンしてみて',st1:'すべて同じ姿',st2:'販売 12.18 20:00 KST · FungoLabs',st3:'孵化の進み具合',
  eb2:'コレクション',eggsP:'今はすべて同じ姿です。どの卵から誰が生まれるかは12月25日にわかります。',
  eb3:'ホワイトリスト・チャレンジ',wlP:'センスのある投稿ひとつで、ホワイトリストを手に入れよう。',spots:'ホワイトリスト枠',
  wlBody:'<span class="tag">#TheChosen100</span> を付けてXに投稿し、リンクを提出してください。いちばん面白い50件を選び、実際に投稿したXアカウントにホワイトリストを贈ります。',
@@ -281,7 +293,7 @@ ja:{nm:'日本語',ab:'JA',tab1:'孵化場',tab2:'100個の卵',tab3:'ホワイ�
  x:'100個の卵、たった一日の孵化。私の卵には誰がいる？ 🥚',ttl:'選ばれし卵',hatched:'🐣 孵化が始まりました！'},
 zh:{nm:'中文',ab:'ZH',tab1:'孵化场',tab2:'100颗蛋',tab3:'白名单',eb1:'孵化中 · 12.25 孵化',
  lead:'100颗看起来一模一样的蛋，里面却各自孕育着不同的小家伙。2026年12月25日0点(韩国时间)，它们将同时破壳。',
- cta1:'查看100颗蛋 →',cta2:'白名单挑战',hint:'轻轻敲一敲蛋',st1:'全部一模一样',st2:'预计发售 · 可能提前',st3:'孵化进度',
+ cta1:'查看100颗蛋 →',cta2:'白名单挑战',saleH:'发售时间（韩国时间 KST）',sale1b:'12.18 20:00',sale1:'Genesis 持有者 · 3个免费抽选',sale2b:'12.18 21:00 – 12.19 21:00',sale2:'白名单 · 50个 · 0.005 ETH · 每人1个',sale3b:'12.19 21:00 – 12.20 21:00',sale3:'公开发售 · 0.01 ETH · 每个钱包1个',saleBtn:'FungoLabs 发售页面 →',saleNote:'官方发售只在 FungoLabs。通过私信发来的铸造链接都是诈骗。',hint:'轻轻敲一敲蛋',st1:'全部一模一样',st2:'发售 12.18 20:00 KST · FungoLabs',st3:'孵化进度',
  eb2:'收藏系列',eggsP:'现在每颗蛋都一样。哪颗蛋里会出来谁，要到12月25日才知道。',
  eb3:'白名单挑战',wlP:'一条有创意的帖子，就能赢得白名单。',spots:'个白名单名额',
  wlBody:'在X发布带 <span class="tag">#TheChosen100</span> 的帖子并提交链接。我们会亲自挑选最有创意的50条，把白名单发给真正发帖的X账号。',
